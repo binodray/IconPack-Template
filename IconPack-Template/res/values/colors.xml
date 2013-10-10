@@ -40,6 +40,8 @@
 	<color name="tab_title">#FFFFFFFF</color>
 	<color name="tab_desc">#FFFFFFFF</color>
 	
+    <color name="holo_blue_light_transparent">#4433b5e5</color>
+	
 	<!-- Misc colors -->
 	<color name="black">#ff000000</color>
 	<color name="white">#ffffffff</color>
