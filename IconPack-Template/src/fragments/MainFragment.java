@@ -81,10 +81,6 @@ public class MainFragment extends SherlockFragment{
 					getResources().getString (R.string.desc_walls), 4));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
 					getResources().getString (R.string.desc_community), 5));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_gplus), 
-					getResources().getString (R.string.desc_gplus), 6));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
-					getResources().getString (R.string.desc_request), 7));
 
 			
 		} else {
@@ -101,8 +97,6 @@ public class MainFragment extends SherlockFragment{
 					getResources().getString (R.string.desc_walls), 4));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
 					getResources().getString (R.string.desc_community), 5));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_gplus), 
-					getResources().getString (R.string.desc_gplus), 6));
 		}
 
 		/**
@@ -168,12 +162,6 @@ public class MainFragment extends SherlockFragment{
 									("http://bit.ly/14F6Eez"));
 			          		startActivity(gpCommunity);
 			        		break;
-						case 5:
-							// Change line 170 with the link for YOUR own G+ Account
-							Intent gplus = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-									("https://plus.google.com/110748421773388678236/posts"));
-			        		startActivity(gplus);
-			        		break;
 		}	
 				} else {	// for phones
 					switch (position) {
@@ -224,12 +212,6 @@ public class MainFragment extends SherlockFragment{
 						Intent gpCommunity = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
 								("http://bit.ly/14F6Eez"));
 		          		startActivity(gpCommunity);
-		        		break;
-					case 6:
-						// Change line 227 with the link for YOUR own G+ Account
-						Intent gplus = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-								("https://plus.google.com/110748421773388678236/posts"));
-		        		startActivity(gplus);
 		        		break;
 		        		
 					}

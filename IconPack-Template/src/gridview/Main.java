@@ -21,8 +21,8 @@ package gridview;
  ** Just be sure you're in the general area
  **/
 
-import helper.GlassActionBarHelper;
 import fragments.MainFragment;
+import helper.GlassActionBarHelper;
 import your.icons.name.here.AboutDev;
 import your.icons.name.here.R;
 import android.app.AlertDialog;
@@ -190,6 +190,12 @@ public class Main extends SherlockFragmentActivity {
 	{
         switch(item.getItemId())
         {
+        	case R.id.more:
+        		return true;
+	        case R.id.newIconsButton:
+				Intent newIcons = new Intent(Main.this, NewIconsMain.class);
+				startActivity(newIcons);
+	            break;
             case R.id.shareButton:
         		Intent shareIntent = new Intent(Intent.ACTION_SEND);
         	    shareIntent.setType("text/plain");

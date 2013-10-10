@@ -33,7 +33,6 @@
 	
 		<!-- GridView Titles -->
 	<string name="title_app">One-Stop-Shop</string>
-	<string name="title_new_icons">Newly Added</string>
 	<string name="title_info">Theme Info</string>
 	<string name="title_apply">Apply Theme</string>
 	<string name="title_walls">Wallpapers</string>
@@ -42,11 +41,13 @@
 	<string name="title_request">Request Icons</string>
 	
 		<!-- OverFlow Menu -->
+	<string name="title_new_icons">Newly Added</string>
 	<string name="title_rate">Rate Theme</string>
 	<string name="title_share">Share Theme</string>
 	<string name="title_email">Email Developer</string>
 	<string name="title_about">About Developer</string>
 	<string name="title_donate">Donate</string>
+	<string name="more_overflow">More</string>
 	
 		<!-- Labels for app icons -->
 	<string name="about_theme">About Theme</string>
