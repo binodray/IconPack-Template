@@ -3,9 +3,15 @@ package adapters;
 import java.util.List;
 
 import your.icons.name.here.R;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +22,16 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.internal.nineoldandroids.animation.Animator;
-import com.actionbarsherlock.internal.nineoldandroids.animation.Animator.AnimatorListener;
-import com.actionbarsherlock.internal.nineoldandroids.animation.AnimatorSet;
-
 
 public class RequestIconsAdapter extends BaseAdapter {
 	private Context context;
 	private List<AdapterItem> gridItem;
+	private SparseBooleanArray mSelectedItemsIds;
 
 	public RequestIconsAdapter(Context context, List<AdapterItem> gridItem) {
 		this.gridItem = gridItem;
 		this.context = context;
-		
+		this.mSelectedItemsIds = new SparseBooleanArray();
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -56,6 +59,142 @@ public class RequestIconsAdapter extends BaseAdapter {
 		holder.chkSelected.setChecked(entry.isSelected());
 
 		return convertView;
+	}
+	
+	public void selectView(int position, boolean value)
+	{
+		if (value)
+			mSelectedItemsIds.put(position, value);
+		else
+			mSelectedItemsIds.delete(position);
+	}
+	
+	public int getSelectedCount()
+	{
+		return mSelectedItemsIds.size();
+	}
+	
+	public void animateView(int position, ListView list)
+	{
+		View v = list.getChildAt(position - list.getFirstVisiblePosition());
+
+		ViewHolder holder = new ViewHolder();
+		holder.Card = (FrameLayout) v.findViewById(R.id.Card);
+		holder.btnContact = (FrameLayout) v.findViewById(R.id.btnContact);
+		holder.imgContact = (ImageView) v.findViewById(R.id.imgContact);
+		holder.imgSelected = (ImageView) v.findViewById(R.id.imgSelected);
+		holder.bgSelected = v.findViewById(R.id.bgSelected);
+
+		if (mSelectedItemsIds.get(position))
+			animateAppDeselected(holder);
+		else
+			animateAppSelected(holder);
+	}
+	
+	private void animateAppSelected(final ViewHolder holderFinal)
+	{
+		// Declare AnimatorSets
+		final AnimatorSet animOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_out);
+		final AnimatorSet animIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_in);
+		animOut.setTarget(holderFinal.btnContact);
+		animIn.setTarget(holderFinal.btnContact);
+		animOut.addListener(new AnimatorListener()
+		{
+			@Override
+			public void onAnimationCancel(Animator animation)
+			{
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation)
+			{
+				holderFinal.btnContact.setClickable(true);
+				selectCard(true, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.VISIBLE);
+				holderFinal.imgSelected.setVisibility(View.VISIBLE);
+				animIn.start();
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation)
+			{
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationStart(Animator animation)
+			{
+				holderFinal.btnContact.setClickable(false);
+				selectCard(false, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.GONE);
+				holderFinal.imgSelected.setVisibility(View.GONE);
+			}
+		});
+		animOut.start();
+	}
+
+	private void animateAppDeselected(final ViewHolder holderFinal)
+	{
+		// Declare AnimatorSets
+		final AnimatorSet animOut = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_out);
+		final AnimatorSet animIn = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_in);
+		animOut.setTarget(holderFinal.btnContact);
+		animIn.setTarget(holderFinal.btnContact);
+		animOut.addListener(new AnimatorListener()
+		{
+			@Override
+			public void onAnimationCancel(Animator animation)
+			{
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation)
+			{
+				holderFinal.btnContact.setClickable(true);
+				selectCard(false, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.GONE);
+				holderFinal.imgSelected.setVisibility(View.GONE);
+				animIn.start();
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation)
+			{
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationStart(Animator animation)
+			{
+				holderFinal.btnContact.setClickable(false);
+				selectCard(true, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.VISIBLE);
+				holderFinal.imgSelected.setVisibility(View.VISIBLE);
+			}
+		});
+		animOut.start();
+	}
+	
+	@SuppressLint("NewApi")
+	@SuppressWarnings("deprecation")
+	private void selectCard(boolean Selected, FrameLayout Card)
+	{
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+		{
+			if (Selected)
+				Card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.card_bg));//card_selected));
+			else
+				Card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.card_bg));
+		}
+		else
+		{
+			if (Selected)
+				Card.setBackground(context.getResources().getDrawable(R.drawable.card_bg));//card_selected));
+			else
+				Card.setBackground(context.getResources().getDrawable(R.drawable.card_bg));
+		}
 	}
 
 	@Override
@@ -110,114 +249,6 @@ public class RequestIconsAdapter extends BaseAdapter {
 			this.Name = Name;
 			this.Image = Image;
 			this.Selected = Selected;
-		}
-		
-		public void animateView(int position, ListView list)
-		{
-			View v = list.getChildAt(position - list.getFirstVisiblePosition());
-
-			ViewHolder holder = new ViewHolder();
-			holder.Card = (FrameLayout) v.findViewById(R.id.Card);
-			holder.btnContact = (FrameLayout) v.findViewById(R.id.btnContact);
-			holder.imgContact = (ImageView) v.findViewById(R.id.imgContact);
-			holder.imgSelected = (ImageView) v.findViewById(R.id.imgSelected);
-			holder.bgSelected = v.findViewById(R.id.bgSelected);
-
-			if (mSelectedItemsIds.get(position))
-				animateAppDeselected(holder);
-			else
-				animateAppSelected(holder);
-
-			mListener.onPhotoClick(position);
-		}
-		private void animateAppSelected(final ViewHolder holderFinal)
-		{
-			// Declare AnimatorSets
-			final AnimatorSet animOut = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_out);
-			final AnimatorSet animIn = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_in);
-			animOut.setTarget(holderFinal.btnContact);
-			animIn.setTarget(holderFinal.btnContact);
-			animOut.addListener(new AnimatorListener()
-			{
-				@Override
-				public void onAnimationCancel(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationEnd(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(true);
-					selectCard(true, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.VISIBLE);
-					holderFinal.imgSelected.setVisibility(View.VISIBLE);
-					animIn.start();
-				}
-
-				@Override
-				public void onAnimationRepeat(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationStart(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(false);
-					selectCard(false, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.GONE);
-					holderFinal.imgSelected.setVisibility(View.GONE);
-				}
-			});
-			animOut.start();
-		}
-
-		private void animateAppDeselected(final ViewHolder holderFinal)
-		{
-			// Declare AnimatorSets
-			final AnimatorSet animOut = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_out);
-			final AnimatorSet animIn = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_in);
-			animOut.setTarget(holderFinal.btnContact);
-			animIn.setTarget(holderFinal.btnContact);
-			animOut.addListener(new AnimatorListener()
-			{
-				@Override
-				public void onAnimationCancel(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationEnd(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(true);
-					selectCard(false, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.GONE);
-					holderFinal.imgSelected.setVisibility(View.GONE);
-					animIn.start();
-				}
-
-				@Override
-				public void onAnimationRepeat(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationStart(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(false);
-					selectCard(true, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.VISIBLE);
-					holderFinal.imgSelected.setVisibility(View.VISIBLE);
-				}
-			});
-			animOut.start();
 		}
 
 		/** SETTERS **/
