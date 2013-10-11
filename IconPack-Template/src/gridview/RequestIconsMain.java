@@ -1,5 +1,9 @@
 package gridview;
 
+import fragments.RequestIconsFragment;
+import helper.GlassActionBarHelper;
+import helper.ScrollGridView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,37 +19,42 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
-import android.widget.GridView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
-public class RequestIconsMain extends SherlockActivity {
+public class RequestIconsMain extends SherlockFragmentActivity {
 	// Views
-	private GridView grid;
-	private Button btnSubmit;
+	private ScrollGridView grid;
 	
 	// List of installed apps
 	private int numSelected;
 	private List<AdapterItem> appList;
 	private RequestIconsAdapter appAdapter;
+	private GlassActionBarHelper helper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.request_main);
+		
+		helper = new GlassActionBarHelper().contentLayout(R.layout.gridview_main);
+		setContentView(helper.createView(this));
+
+		getSupportFragmentManager().beginTransaction()
+		.replace(R.id.containerList, new RequestIconsFragment())
+		.commit();
 
 		initViews();
 		loadAppList();
 		initGrid();
-		submitData();
 	}
 	
 	private void initViews()
 	{
-		grid = (GridView) findViewById(R.id.grid);
-		btnSubmit = (Button) findViewById(R.id.btnSubmit);
+		grid = (ScrollGridView) findViewById(R.id.grid);
 	}
 
 	private void loadAppList() {
@@ -110,19 +119,6 @@ public class RequestIconsMain extends SherlockActivity {
 		});
 	}
 	
-	private void submitData()
-	{
-		btnSubmit.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if(numSelected > 0)
-					sendData();
-				else
-					Toast.makeText(RequestIconsMain.this, "No apps selected", Toast.LENGTH_SHORT).show();
-			}
-		});
-	}
-	
 	private void sendData()
 	{
 		StringBuilder builder = new StringBuilder();
@@ -155,5 +151,33 @@ public class RequestIconsMain extends SherlockActivity {
 		{
 	        Toast.makeText(RequestIconsMain.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 	    }
+	}
+
+	/************************************************************************
+	 ********************* This is your submit button ***********************
+	 ************************************************************************/
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.menu_request, menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+        switch(item.getItemId())
+        {
+        	case R.id.submitButton:
+    				if(numSelected > 0)
+    					sendData();
+    				else
+    					Toast.makeText(RequestIconsMain.this, "No apps selected", 
+    							Toast.LENGTH_SHORT).show();
+        		return true;
+        }
+        return true;
 	}
 }
