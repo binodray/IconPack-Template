@@ -5,6 +5,12 @@ package your.icons.name.here;
  ** MODIFY AT YOUR OWN RISK!!!
  **/
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import android.R;
+import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,16 +28,10 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
 
 
 @SuppressWarnings("deprecation")
-public class Wallpaper extends SherlockActivity implements AdapterView.OnItemSelectedListener,
+public class Wallpaper extends Activity implements AdapterView.OnItemSelectedListener,
         OnClickListener {
 
     private Gallery mGallery;

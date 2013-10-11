@@ -1,19 +1,19 @@
 package your.icons.name.here;
 
+import android.R;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Window;
-
-public class AboutDev extends SherlockActivity {
+public class AboutDev extends Activity {
 
 	private ImageButton
     twitter,

@@ -24,7 +24,7 @@ package gridview;
 import fragments.MainFragment;
 import helper.GlassActionBarHelper;
 import your.icons.name.here.AboutDev;
-import your.icons.name.here.R;
+import android.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -37,16 +37,15 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
-public class Main extends SherlockFragmentActivity {
+public class Main extends FragmentActivity {
 	
 	private SharedPreferences prefs;
 	private GlassActionBarHelper helper;
@@ -64,8 +63,8 @@ public class Main extends SherlockFragmentActivity {
 		helper = new GlassActionBarHelper().contentLayout(R.layout.gridview_main);
 		setContentView(helper.createView(this));
 		
-		getSupportActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
-		getSupportActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
+		getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
+		getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
 		
 		getSupportFragmentManager().beginTransaction()
 		.replace(R.id.container, new MainFragment())
@@ -183,7 +182,7 @@ public class Main extends SherlockFragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		MenuInflater inflater = getSupportMenuInflater();
+		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		
 		return true;

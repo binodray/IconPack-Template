@@ -6,25 +6,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import your.icons.name.here.R;
 import adapters.RequestIconsAdapter;
 import adapters.RequestIconsAdapter.AdapterItem;
+import android.R;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-
-public class RequestIconsMain extends SherlockActivity {
+public class RequestIconsMain extends Activity {
 	// Views
 	private ScrollGridView grid;
 	
@@ -150,7 +149,7 @@ public class RequestIconsMain extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-		MenuInflater inflater = getSupportMenuInflater();
+		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_request, menu);
 		
 		return true;

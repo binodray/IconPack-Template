@@ -1,7 +1,6 @@
 package fragments;
 
 import gridview.LauncherMain;
-import gridview.NewIconsMain;
 import gridview.RequestIconsMain;
 import helper.ScrollGridView;
 
@@ -9,23 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import your.icons.name.here.AboutThemeActivity;
-import your.icons.name.here.R;
 import your.icons.name.here.Wallpaper;
 import adapters.MainAdapter;
 import adapters.MainAdapter.AdapterItem;
+import android.R;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-
-import com.actionbarsherlock.app.SherlockFragment;
 
 
 /** 
@@ -33,7 +31,7 @@ import com.actionbarsherlock.app.SherlockFragment;
  ** Just be sure you're in the general area
  **/
 
-public class MainFragment extends SherlockFragment{
+public class MainFragment extends Fragment{
 	
 	ScrollGridView gridView;
 	final List<AdapterItem> listOfStuff = new ArrayList<AdapterItem>();
@@ -142,15 +140,15 @@ public class MainFragment extends SherlockFragment{
 						}
 			    			break;
 			    		case 1:
-			    			Intent requestIcons = new Intent(getSherlockActivity(), RequestIconsMain.class);
+			    			Intent requestIcons = new Intent(getActivity(), RequestIconsMain.class);
 			    			startActivity(requestIcons);
 			    			break;
 						case 2:
-							Intent launcher = new Intent(getSherlockActivity(), LauncherMain.class);
+							Intent launcher = new Intent(getActivity(), LauncherMain.class);
 							startActivity(launcher);
 			        		break;
 						case 3:
-							Intent wall = new Intent(getSherlockActivity(), Wallpaper.class);
+							Intent wall = new Intent(getActivity(), Wallpaper.class);
 							startActivity(wall);
 			        		break;
 						case 4:
@@ -189,19 +187,19 @@ public class MainFragment extends SherlockFragment{
 					}
 		    			break;
 		    		case 1:
-		    			Intent requestIcons = new Intent(getSherlockActivity(), RequestIconsMain.class);
+		    			Intent requestIcons = new Intent(getActivity(), RequestIconsMain.class);
 		    			startActivity(requestIcons);
 		    			break;
 					case 2:
-						Intent aboutTheme = new Intent(getSherlockActivity(), AboutThemeActivity.class);
+						Intent aboutTheme = new Intent(getActivity(), AboutThemeActivity.class);
 						startActivity(aboutTheme);
 		        		break;
 					case 3:
-						Intent launcher = new Intent(getSherlockActivity(), LauncherMain.class);
+						Intent launcher = new Intent(getActivity(), LauncherMain.class);
 						startActivity(launcher);
 		        		break;
 					case 4:
-						Intent wall = new Intent(getSherlockActivity(), Wallpaper.class);
+						Intent wall = new Intent(getActivity(), Wallpaper.class);
 						startActivity(wall);
 		        		break;
 					case 5:
@@ -226,7 +224,7 @@ public class MainFragment extends SherlockFragment{
 	public boolean isPackageExists(String targetPackage){
 		  List<ApplicationInfo> packages;
 		  PackageManager pm;
-		  pm = getSherlockActivity().getPackageManager();
+		  pm = getActivity().getPackageManager();
 		  packages = pm.getInstalledApplications(0);
 		  for (ApplicationInfo packageInfo : packages) {
 		  if(packageInfo.packageName.equals(targetPackage)) return true;

@@ -16,14 +16,12 @@
 
 package gridview;
 
-import your.icons.name.here.R;
+import android.R;
 import android.os.Bundle;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-
+import android.support.v4.app.FragmentActivity;
 import fragments.NewIconsFragment;
 
-public class NewIconsMain extends SherlockFragmentActivity {
+public class NewIconsMain extends FragmentActivity {
 
 	// Starts the Activity for the gridview
 	@Override

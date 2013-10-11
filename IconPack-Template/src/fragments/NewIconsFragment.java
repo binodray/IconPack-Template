@@ -21,9 +21,9 @@ import helper.ScrollGridView;
 import java.util.ArrayList;
 import java.util.List;
 
-import your.icons.name.here.R;
 import adapters.NewIconsAdapter;
 import adapters.NewIconsAdapter.NewIconName;
+import android.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -33,6 +33,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,10 +42,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
 @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-public class NewIconsFragment extends SherlockFragment {
+public class NewIconsFragment extends Fragment {
 
 	private static Animator mCurrentAnimator;
 	private static int mShortAnimationDuration;

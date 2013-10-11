@@ -3,14 +3,15 @@ package fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-import your.icons.name.here.R;
 import adapters.LauncherAdapter;
 import adapters.LauncherAdapter.LauncherItem;
+import android.R;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
 /**
  ** Some lines may be off a few numbers Just be sure you're in the general area
  **/
 
-public class LauncherFragment extends SherlockFragment {
+public class LauncherFragment extends Fragment {
 
 	GridView gridView;
 	final List<LauncherItem> launcherStuff = new ArrayList<LauncherItem>();
@@ -73,12 +72,12 @@ public class LauncherFragment extends SherlockFragment {
 				switch (position) {
 				case 0:
 					Intent apex = new Intent(ACTION_SET_THEME);
-					apex.putExtra(EXTRA_PACKAGE_NAME, getSherlockActivity().getPackageName());
+					apex.putExtra(EXTRA_PACKAGE_NAME, getActivity().getPackageName());
 					apex.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					try {
 						startActivity(apex);
 
-						Toast applied = Toast.makeText(getSherlockActivity().getBaseContext(), 
+						Toast applied = Toast.makeText(getActivity().getBaseContext(), 
 								getResources().getString (R.string.finish_apply),
 								Toast.LENGTH_LONG);
 						applied.show();
@@ -89,7 +88,7 @@ public class LauncherFragment extends SherlockFragment {
 						startActivity(apexMarket);
 						Toast failedApex = Toast
 								.makeText(
-										getSherlockActivity().getBaseContext(),
+										getActivity().getBaseContext(),
 										getResources().getString (R.string.apex_market),
 										Toast.LENGTH_SHORT);
 						failedApex.show();
@@ -111,14 +110,14 @@ public class LauncherFragment extends SherlockFragment {
 						startActivity(novaMarket);
 						Toast failedNova = Toast
 								.makeText(
-										getSherlockActivity().getBaseContext(),
+										getActivity().getBaseContext(),
 										getResources().getString (R.string.nova_market),
 										Toast.LENGTH_SHORT);
 						failedNova.show();
 					}
 					break;
 				case 2:
-					Toast failedHolo = Toast.makeText(getSherlockActivity().getBaseContext(),
+					Toast failedHolo = Toast.makeText(getActivity().getBaseContext(),
 							getResources().getString (R.string.not_supported),
 							Toast.LENGTH_LONG);
 					failedHolo.show();
@@ -137,15 +136,15 @@ public class LauncherFragment extends SherlockFragment {
 						startActivity(adwMarket);
 						Toast failedADW = Toast
 								.makeText(
-										getSherlockActivity().getBaseContext(),
+										getActivity().getBaseContext(),
 										getResources().getString (R.string.adw_market),
 										Toast.LENGTH_SHORT);
 						failedADW.show();
 					} 
-					((Activity) getSherlockActivity()).finish();
+					((Activity) getActivity()).finish();
 					break;
 				case 4:
-					Intent al = getSherlockActivity().getPackageManager().getLaunchIntentForPackage(
+					Intent al = getActivity().getPackageManager().getLaunchIntentForPackage(
 							"com.chrislacy.actionlauncher.pro");
 					if (al != null) {
 
@@ -159,22 +158,22 @@ public class LauncherFragment extends SherlockFragment {
 						startActivity(alMarket);
 						Toast failedAL = Toast
 								.makeText(
-										getSherlockActivity().getBaseContext(), 
+										getActivity().getBaseContext(), 
 										getResources().getString (R.string.al_market),
 										Toast.LENGTH_SHORT);
 						failedAL.show();
 					}
 					break;
 				case 5:
-					Intent goApply = getSherlockActivity().getPackageManager().getLaunchIntentForPackage(
+					Intent goApply = getActivity().getPackageManager().getLaunchIntentForPackage(
 							"com.gau.go.launcherex");
 					if (goApply != null) {
 						Intent go = new Intent("com.gau.go.launcherex.MyThemes.mythemeaction");
 		                go.putExtra("type",1);
-		                go.putExtra("pkgname", getSherlockActivity().getPackageName());
-		                getSherlockActivity().sendBroadcast(go);
+		                go.putExtra("pkgname", getActivity().getPackageName());
+		                getActivity().sendBroadcast(go);
 						Toast appliedGo = Toast
-		                .makeText(getSherlockActivity().getBaseContext(), getResources().getString
+		                .makeText(getActivity().getBaseContext(), getResources().getString
 		                		(R.string.go_applied), Toast.LENGTH_LONG);
 						appliedGo.show();
 						startActivity(goApply); 
@@ -184,13 +183,13 @@ public class LauncherFragment extends SherlockFragment {
 						startActivity(goMarket);
 						
 						Toast failedGo = Toast
-						.makeText(getSherlockActivity().getBaseContext(), getResources().getString 
+						.makeText(getActivity().getBaseContext(), getResources().getString 
 								(R.string.go_market), Toast.LENGTH_SHORT);
 						failedGo.show();
 					}
 					break;
 				case 6:
-					Toast failedNext = Toast.makeText(getSherlockActivity().getBaseContext(),
+					Toast failedNext = Toast.makeText(getActivity().getBaseContext(),
 							getResources().getString (R.string.not_supported),
 							Toast.LENGTH_LONG);
 					failedNext.show();
@@ -199,7 +198,7 @@ public class LauncherFragment extends SherlockFragment {
 				 * Always leave this as the last item
 				 */
 				case 7:
-					((Activity) getSherlockActivity()).finish();
+					((Activity) getActivity()).finish();
 					break;
 				}
 			}

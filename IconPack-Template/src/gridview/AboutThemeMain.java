@@ -1,14 +1,13 @@
 package gridview;
 
-import your.icons.name.here.R;
+import android.R;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.actionbarsherlock.app.SherlockFragment;
-
-public class AboutThemeMain extends SherlockFragment {
+public class AboutThemeMain extends Fragment {
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

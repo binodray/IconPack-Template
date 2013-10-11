@@ -40,8 +40,8 @@ public class AboutThemeFragment extends AboutThemeMain {
 	  public void onStart() {
 	  super.onStart();
 
-      Typeface font1 = Typeface.createFromAsset(getSherlockActivity().getAssets(), "RobotoSlab-Regular.ttf");
-      TextView desc1 = (TextView) getSherlockActivity().findViewById(R.id.description1);
+      Typeface font1 = Typeface.createFromAsset(getActivity().getAssets(), "RobotoSlab-Regular.ttf");
+      TextView desc1 = (TextView) getActivity().findViewById(R.id.description1);
       desc1.setTypeface(font1);
 	
 	  

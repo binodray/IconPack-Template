@@ -1,15 +1,13 @@
 package gridview;
 
+import android.R;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.Window;
 import android.view.WindowManager;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Window;
-
 import fragments.LauncherFragment;
-import your.icons.name.here.R;
 
-public class LauncherMain extends SherlockFragmentActivity {
+public class LauncherMain extends FragmentActivity {
 
 	// Starts the Activity for the list view
 	@Override

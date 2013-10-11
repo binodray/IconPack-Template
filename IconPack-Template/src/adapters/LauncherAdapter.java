@@ -1,5 +1,8 @@
 package adapters;
 
+import java.util.List;
+
+import android.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -8,10 +11,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
-
-import your.icons.name.here.R;
 
 public class LauncherAdapter extends BaseAdapter{
 	private Context context;

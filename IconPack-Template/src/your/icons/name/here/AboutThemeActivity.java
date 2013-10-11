@@ -1,5 +1,7 @@
 package your.icons.name.here;
 
+import android.R;
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -13,9 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-public class AboutThemeActivity extends SherlockActivity {
+public class AboutThemeActivity extends Activity {
 	
 	
 	private ImageButton previous, next;
@@ -32,8 +32,8 @@ public class AboutThemeActivity extends SherlockActivity {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.theme_fragment);
 		
-	  getSupportActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
-	  getSupportActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
+	  getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
+	  getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
 	  
       Typeface font1 = Typeface.createFromAsset(getAssets(), "RobotoSlab-Regular.ttf");
       TextView desc1 = (TextView) findViewById(R.id.description1);
