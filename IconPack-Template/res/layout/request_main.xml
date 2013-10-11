@@ -4,36 +4,18 @@
     android:layout_height="match_parent"
     android:background="@color/app_bg" >
 
-    <GridView
+    <helper.ScrollGridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/Bottom"
         android:layout_marginTop="@dimen/ab_height"
-        android:clipToPadding="false" />
-
-    <LinearLayout
-        android:id="@+id/Bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:orientation="vertical" >
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#ffd3d3d3" />
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_gray_selector"
-            android:fontFamily="sans-serif-regular"
-            android:text="Submit"
-            android:textColor="@drawable/text_button_selector"
-            android:textSize="20sp" />
-    </LinearLayout>
+        android:layout_marginLeft="@dimen/left_right_list_margin"
+        android:layout_marginRight="@dimen/left_right_list_margin"
+        android:clipToPadding="false"
+	    android:numColumns="1"
+	    android:divider="@color/transparent"
+	    android:dividerHeight="0dp"
+	    android:listSelector="@color/transparent"
+	    android:cacheColorHint="@color/transparent"  />
 
 </RelativeLayout>

@@ -29,6 +29,8 @@
     <dimen name="launcher_title">48sp</dimen>
     <dimen name="button_text">16sp</dimen>
     
+    <dimen name="left_right_list_margin">4dp</dimen>
+    
     <dimen name="dialog_button_height">48dp</dimen>
     
     <!-- New Icon Preview Section -->

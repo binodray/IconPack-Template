@@ -79,7 +79,7 @@
                 android:foreground="@drawable/selector_trans_border" >
 
                 <ImageView
-                    android:id="@+id/imgContact"
+                    android:id="@+id/imgIcon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@color/holo_purple" />
@@ -92,7 +92,7 @@
                     android:visibility="gone" />
 
                 <ImageView
-                    android:id="@+id/imgSelected"
+                    android:id="@+id/chkSelected"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_selected"

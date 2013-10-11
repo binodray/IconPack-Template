@@ -1,7 +1,5 @@
 package gridview;
 
-import fragments.RequestIconsFragment;
-import helper.GlassActionBarHelper;
 import helper.ScrollGridView;
 
 import java.util.ArrayList;
@@ -21,12 +19,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class RequestIconsMain extends SherlockFragmentActivity {
+public class RequestIconsMain extends SherlockActivity {
 	// Views
 	private ScrollGridView grid;
 	
@@ -34,18 +32,11 @@ public class RequestIconsMain extends SherlockFragmentActivity {
 	private int numSelected;
 	private List<AdapterItem> appList;
 	private RequestIconsAdapter appAdapter;
-	private GlassActionBarHelper helper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		helper = new GlassActionBarHelper().contentLayout(R.layout.gridview_main);
-		setContentView(helper.createView(this));
-
-		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.containerList, new RequestIconsFragment())
-		.commit();
+		setContentView(R.layout.request_main);
 
 		initViews();
 		loadAppList();

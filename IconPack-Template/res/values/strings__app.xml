@@ -48,6 +48,7 @@
 	<string name="title_about">About Developer</string>
 	<string name="title_donate">Donate</string>
 	<string name="more_overflow">More</string>
+	<string name="submit">Submit</string>
 	
 		<!-- Labels for app icons -->
 	<string name="about_theme">About Theme</string>
