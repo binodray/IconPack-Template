@@ -11,7 +11,7 @@ import your.icons.name.here.AboutThemeActivity;
 import your.icons.name.here.Wallpaper;
 import adapters.MainAdapter;
 import adapters.MainAdapter.AdapterItem;
-import android.R;
+import your.icons.name.here.R;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;

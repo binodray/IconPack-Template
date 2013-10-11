@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import your.icons.name.here.R;
 import adapters.RequestIconsAdapter;
 import adapters.RequestIconsAdapter.AdapterItem;
-import android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;

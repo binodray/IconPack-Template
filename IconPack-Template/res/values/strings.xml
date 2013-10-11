@@ -44,9 +44,7 @@
 	<string name="main_dock_style">2</string>
 	
   		<!-- Go Launcher stuff -->
-	<string name="theme_title">YOUR_ICONS_NAME_HERE</string>
 	<string name="theme_info">YOUR_THEME_DESCRIPTION_HERE</string>
-  	<bool name="config_iconpack">true</bool>
 	<bool name="enableIconPack">true</bool>
 	<bool name="enableDockPack">false</bool>
 	<string name="theme_title">YOUR_ICONS_NAME_HERE</string>

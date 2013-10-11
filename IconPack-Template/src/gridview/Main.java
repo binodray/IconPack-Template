@@ -24,7 +24,7 @@ package gridview;
 import fragments.MainFragment;
 import helper.GlassActionBarHelper;
 import your.icons.name.here.AboutDev;
-import android.R;
+import your.icons.name.here.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;

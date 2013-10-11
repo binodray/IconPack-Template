@@ -3,7 +3,6 @@ package your.icons.name.here;
 
 import java.util.ArrayList;
 
-import android.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

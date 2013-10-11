@@ -2,7 +2,7 @@ package adapters;
 
 import java.util.List;
 
-import android.R;
+import your.icons.name.here.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;

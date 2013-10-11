@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import android.R;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;

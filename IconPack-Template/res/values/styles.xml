@@ -17,7 +17,7 @@
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="Theme.Sherlock.Light">
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:windowActionBarOverlay">true</item>
@@ -31,7 +31,7 @@
        	<item name="android:src">@drawable/menu_more_overflow</item>
     </style>
     
-    <style name="AppTheme_Dark" parent="Theme.Sherlock">
+    <style name="AppTheme_Dark" parent="@android:style/Theme.Holo">
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:windowActionBarOverlay">true</item>
@@ -41,18 +41,13 @@
         <item name="android:actionOverflowButtonStyle">@style/Overflow_White</item>
     </style>
 
-    <style name="Sherlock.__Widget.Holo.ListView" parent="android:Widget.ListView">
-        <item name="android:divider">@drawable/abs__list_divider_holo_dark</item>
-        <item name="android:listSelector">@drawable/abs__list_selector_holo_dark</item>
-    </style>
-
-    <style name="TranslucentActionBar" parent="Widget.Sherlock.ActionBar">
+    <style name="TranslucentActionBar" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:background">@drawable/ab_transparent</item>
         <item name="background">@drawable/ab_transparent</item>
     </style>
 
     <!-- Jake Wharton's ABS dialog styles -->
-    <style name="DialogWindowTitle.Sherlock" parent="Widget">
+    <style name="DialogWindowTitle.Sherlock" parent="@android:style/Theme.Dialog">
         <item name="android:maxLines">1</item>
         <item name="android:scrollHorizontally">true</item>
         <item name="android:textAppearance">@style/TextAppearance.Sherlock.DialogWindowTitle</item>
@@ -61,7 +56,7 @@
         <item name="android:paddingRight">16dip</item>
     </style>
 
-    <style name="DialogWindowTitle.Sherlock.Light" parent="Widget">
+    <style name="DialogWindowTitle.Sherlock.Light" parent="@android:style/Theme.Dialog">
         <item name="android:maxLines">1</item>
         <item name="android:scrollHorizontally">true</item>
         <item name="android:textAppearance">@style/TextAppearance.Sherlock.Light.DialogWindowTitle</item>
@@ -70,12 +65,12 @@
         <item name="android:paddingRight">16dip</item>
     </style>
 
-    <style name="TextAppearance.Sherlock.DialogWindowTitle" parent="Widget">
+    <style name="TextAppearance.Sherlock.DialogWindowTitle" parent="@android:style/Theme.Dialog">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/abs__holo_blue_light</item>
     </style>
 
-    <style name="TextAppearance.Sherlock.Light.DialogWindowTitle" parent="Widget">
+    <style name="TextAppearance.Sherlock.Light.DialogWindowTitle" parent="@android:style/Theme.Dialog">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/abs__holo_blue_light</item>
     </style>

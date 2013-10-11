@@ -3,9 +3,9 @@ package fragments;
 import java.util.ArrayList;
 import java.util.List;
 
+import your.icons.name.here.R;
 import adapters.LauncherAdapter;
 import adapters.LauncherAdapter.LauncherItem;
-import android.R;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

@@ -23,7 +23,7 @@ import java.util.List;
 
 import adapters.NewIconsAdapter;
 import adapters.NewIconsAdapter.NewIconName;
-import android.R;
+import your.icons.name.here.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
