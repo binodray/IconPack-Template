@@ -35,6 +35,7 @@
     <!-- NOTE: Stock app_bg color for the 'light' look is #FFE5E5E5 -->
     <!-- These colors are changed no matter which view you choose -->
 	<color name="app_bg">#FFE5E5E5</color>
+	<color name="app_bg_translucent_50">#88E5E5E5</color>
 	<color name="wall_bg">#FFE5E5E5</color>
 	<!-- Tablet Layout -->
 	<color name="tab_title">#FFFFFFFF</color>

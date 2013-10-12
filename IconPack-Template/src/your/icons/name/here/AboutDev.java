@@ -23,7 +23,6 @@ public class AboutDev extends Activity {
 	@Override
 	  public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
-	  noTitle();
 	  setContentView(R.layout.about_dev);  
       
       Typeface font1 = Typeface.createFromAsset(getAssets(), "RobotoSlab-Regular.ttf");
@@ -77,13 +76,6 @@ public class AboutDev extends Activity {
               }
       });
 }
-
-	// Hides the title bar
-	public void noTitle() {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-	}
 	
 	// This will return the Activity to the Main Screen when the app is in a Paused (not used) state
 	@Override

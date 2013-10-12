@@ -20,12 +20,6 @@ public class LauncherMain extends FragmentActivity {
 		.commit();
 	}
 
-	// Hides the title bar
-	public void noTitle() {
-		requestWindowFeature((int) Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-	}
 	// This will return the Activity to the Main Screen when the app is in a Paused (not used) state
 	@Override
 	  public void onPause(){

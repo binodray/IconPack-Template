@@ -40,7 +40,7 @@
     android:numColumns="1"
     android:divider="@color/black"
     android:dividerHeight="0dp"
-    android:background="@color/app_bg"
+    android:background="@color/app_bg_translucent_50"
     android:listSelector="@color/transparent"
     android:cacheColorHint="@color/transparent" 
     tools:context="gridview.LauncherMain"/>

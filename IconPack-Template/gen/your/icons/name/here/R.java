@@ -703,19 +703,20 @@ containing a value of this type.
         public static final int about_title_color=0x7f0c0012;
         /**  ABS Imports 
          */
-        public static final int abs__holo_blue_light=0x7f0c003a;
+        public static final int abs__holo_blue_light=0x7f0c003b;
         /**  NOTE: Stock app_bg color for the 'light' look is #FFE5E5E5 
  These colors are changed no matter which view you choose 
          */
         public static final int app_bg=0x7f0c001b;
+        public static final int app_bg_translucent_50=0x7f0c001c;
         /**  FlatView colors to change 
          */
         public static final int app_font=0x7f0c0018;
         /**  Misc colors 
          */
-        public static final int black=0x7f0c0020;
-        public static final int black_50=0x7f0c0023;
-        public static final int blue_dark=0x7f0c0034;
+        public static final int black=0x7f0c0021;
+        public static final int black_50=0x7f0c0024;
+        public static final int blue_dark=0x7f0c0035;
         public static final int bubble_background_color=0x7f0c000d;
         public static final int bubble_color=0x7f0c000f;
         public static final int bubble_ring_color=0x7f0c000b;
@@ -732,23 +733,23 @@ containing a value of this type.
         public static final int drawer_widget_size_color=0x7f0c0009;
         public static final int folder_item_text_color=0x7f0c0003;
         public static final int folder_title_color=0x7f0c0002;
-        public static final int gray=0x7f0c0024;
-        public static final int gray_dark=0x7f0c0025;
-        public static final int gray_light=0x7f0c0027;
-        public static final int gray_light2=0x7f0c0028;
-        public static final int gray_medium=0x7f0c0026;
-        public static final int holo_blue=0x7f0c0029;
-        public static final int holo_blue_dark=0x7f0c002f;
-        public static final int holo_blue_light_transparent=0x7f0c001f;
-        public static final int holo_green=0x7f0c002a;
-        public static final int holo_green_dark=0x7f0c0030;
-        public static final int holo_orange=0x7f0c002c;
-        public static final int holo_orange_dark=0x7f0c0032;
-        public static final int holo_purple=0x7f0c002b;
-        public static final int holo_purple_dark=0x7f0c0031;
-        public static final int holo_red=0x7f0c002d;
-        public static final int holo_red_80=0x7f0c002e;
-        public static final int holo_red_dark=0x7f0c0033;
+        public static final int gray=0x7f0c0025;
+        public static final int gray_dark=0x7f0c0026;
+        public static final int gray_light=0x7f0c0028;
+        public static final int gray_light2=0x7f0c0029;
+        public static final int gray_medium=0x7f0c0027;
+        public static final int holo_blue=0x7f0c002a;
+        public static final int holo_blue_dark=0x7f0c0030;
+        public static final int holo_blue_light_transparent=0x7f0c0020;
+        public static final int holo_green=0x7f0c002b;
+        public static final int holo_green_dark=0x7f0c0031;
+        public static final int holo_orange=0x7f0c002d;
+        public static final int holo_orange_dark=0x7f0c0033;
+        public static final int holo_purple=0x7f0c002c;
+        public static final int holo_purple_dark=0x7f0c0032;
+        public static final int holo_red=0x7f0c002e;
+        public static final int holo_red_80=0x7f0c002f;
+        public static final int holo_red_dark=0x7f0c0034;
         /**  Skin colors 
          */
         public static final int homescreen_icon_text_color=0x7f0c0000;
@@ -758,22 +759,22 @@ containing a value of this type.
          */
         public static final int list_title_color=0x7f0c0019;
         public static final int outline_color=0x7f0c0001;
-        public static final int pk_blue_dark=0x7f0c0039;
-        public static final int pk_gray_lightest=0x7f0c0038;
+        public static final int pk_blue_dark=0x7f0c003a;
+        public static final int pk_gray_lightest=0x7f0c0039;
         public static final int shadow_large_color=0x7f0c0004;
         public static final int shadow_small_color=0x7f0c0005;
-        public static final int tab_desc=0x7f0c001e;
+        public static final int tab_desc=0x7f0c001f;
         /**  Tablet Layout 
          */
-        public static final int tab_title=0x7f0c001d;
+        public static final int tab_title=0x7f0c001e;
         public static final int text_description=0x7f0c0016;
         public static final int text_title=0x7f0c0017;
-        public static final int transparent=0x7f0c0035;
-        public static final int transparent_black=0x7f0c0036;
-        public static final int wall_bg=0x7f0c001c;
-        public static final int wall_title_color=0x7f0c0037;
-        public static final int white=0x7f0c0021;
-        public static final int white_50=0x7f0c0022;
+        public static final int transparent=0x7f0c0036;
+        public static final int transparent_black=0x7f0c0037;
+        public static final int wall_bg=0x7f0c001d;
+        public static final int wall_title_color=0x7f0c0038;
+        public static final int white=0x7f0c0022;
+        public static final int white_50=0x7f0c0023;
     }
     public static final class dimen {
         public static final int ab_height=0x7f0d0027;
@@ -1335,33 +1336,30 @@ containing a value of this type.
         public static final int wall_picker=0x7f0a002a;
     }
     public static final class style {
+        public static final int Overflow_Menu=0x7f0f0002;
+        public static final int TranslucentActionBar=0x7f0f0003;
+        /**  This is your Dialog Window popups. Changing the bg color will change the color of the window.  
+         */
+        public static final int the1dynasty_Dialog=0x7f0f0004;
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+** Copyright 2013, the1dynasty
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
 
-
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-
-
-        
+ Application themes 
          */
-        public static final int AppBaseTheme=0x7f0f0000;
-        /**  Application theme. 
-         */
-        public static final int AppTheme=0x7f0f0001;
-        public static final int AppTheme_Dark=0x7f0f0003;
-        /**  Jake Wharton's ABS dialog styles 
-         */
-        public static final int DialogWindowTitle_Sherlock=0x7f0f0005;
-        public static final int DialogWindowTitle_Sherlock_Light=0x7f0f0006;
-        public static final int Overflow_White=0x7f0f0002;
-        public static final int TextAppearance_Sherlock_DialogWindowTitle=0x7f0f0007;
-        public static final int TextAppearance_Sherlock_Light_DialogWindowTitle=0x7f0f0008;
-        public static final int TranslucentActionBar=0x7f0f0004;
+        public static final int the1dynasty_Theme=0x7f0f0000;
+        public static final int the1dynasty_Theme_Dark=0x7f0f0001;
     }
     public static final class xml {
         public static final int appfilter=0x7f070000;

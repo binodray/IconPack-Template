@@ -19,11 +19,9 @@
 <manifest 
 		xmlns:android="http://schemas.android.com/apk/res/android"
       	package="your.icons.name.here"
-      	android:versionCode="228"
-      	android:versionName="2.2.8"
+      	android:versionCode="300"
+      	android:versionName="3.0.0"
       	android:installLocation="auto">
-    <!-- android:installLocation is set to "auto" 
-    change to "internalOnly" if you want it installed to the internal memory -->
     
     <!-- Permission required for setting the wallpaper -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -38,9 +36,8 @@
         android:xlargeScreens="true"  
         android:resizeable="true" />
     
-    <!-- minSDK set to run on Android 2.3 and newer
-    	targetSDK set to run on latest version. This ensures 
-    	the latest graphics are used on newer devices -->
+    <!-- minSDK set to run on Android 4.0 and newer targetSDK set to run on latest version. 
+    	This ensures the latest API's are used on newer devices -->
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="18"/>
     
     <!-- Change the style to something else if you want a different look
@@ -49,7 +46,7 @@
         android:allowBackup="true"
         android:label="@string/app_name" 
         android:icon="@drawable/icon"
-        android:theme="@style/AppTheme" 
+        android:theme="@style/the1dynasty.Theme" 
         android:largeHeap="true" >
     <!-- Use AppTheme_Dark for the dark version of some windows -->
         
@@ -68,22 +65,30 @@
             android:name="your.icons.name.here.AboutThemeActivity"
             android:label="@string/about_theme"
             android:screenOrientation="portrait" >
-        </activity>
-        <activity 
-            android:name="your.icons.name.here.AboutDev"
-            android:theme="@android:style/Theme.Dialog" >
         </activity>  
 		<activity 
             android:name="gridview.NewIconsMain"
             android:label="@string/new_icons_title" >
         </activity> 
+        <activity  
+            android:name="gridview.RequestIconsMain" 
+            android:label="@string/app_name" 
+            android:icon="@drawable/icon_wall" >
+        </activity>
+        
+    <!-- This is the AboutDev Activity. Remove android:theme line if you want it to open 
+    	as its own Activity and NOT a popup  -->
+        <activity 
+            android:name="your.icons.name.here.AboutDev"
+            android:theme="@style/the1dynasty.Dialog" >
+        </activity>
          
     <!-- This is the Activity Dialog that pops up when selecting to apply your Icon Pack
     	Remove android:theme line if you want it to open as its own Activity and NOT a popup -->
 		<activity 
             android:name="gridview.LauncherMain"
             android:label="@string/launcher_title"
-            android:theme="@android:style/Theme.Dialog" >
+            android:theme="@style/the1dynasty.Dialog" >
         </activity>
         
         <activity  
@@ -92,21 +97,15 @@
             android:icon="@drawable/icon_wall" 
             android:finishOnCloseSystemDialogs="true">
             <intent-filter>
-                <!-- 
-                ** The commented out line below determines if the Icon Pack shows up as an 
-                ** icon in the launchers wallpaper picker. Remove the commented parts at the beginning 
-                ** and end to enable it. Note: If you're using Apex, you will still see the list 
-                ** of wallpapers by selecting Apex Wallpapers 
-                -->
+                
+				<!-- The commented out line below determines if the Icon Pack shows up as an 
+                  ** icon in the launchers wallpaper picker. Remove the commented parts at the beginning 
+                  ** and end to enable it. Note: If you're using Apex, you will still see the list 
+                  ** of wallpapers by selecting Apex Wallpapers -->
+                
                 <!-- <action android:name="android.intent.action.SET_WALLPAPER" /> -->
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-        
-        <activity  
-            android:name="gridview.RequestIconsMain" 
-            android:label="@string/app_name" 
-            android:icon="@drawable/icon_wall" >
         </activity>
         
         <activity
