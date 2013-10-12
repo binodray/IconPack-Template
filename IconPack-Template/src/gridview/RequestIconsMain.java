@@ -172,4 +172,11 @@ public class RequestIconsMain extends Activity {
         }
         return true;
 	}
+	
+	// This will return the Activity to the Main Screen when the app is in a Paused (not used) state
+	@Override
+	  public void onPause(){
+		  super.onPause();
+		  finish();
+	  }
 }
