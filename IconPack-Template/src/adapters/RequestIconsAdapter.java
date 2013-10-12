@@ -61,7 +61,19 @@ public class RequestIconsAdapter extends BaseAdapter {
 		holder.txtCode.setText(entry.getCode());
 		holder.txtName.setText(entry.getName());
 		holder.imgIcon.setImageDrawable(entry.getImage());
-		holder.chkSelected.setImageDrawable(entry.getImage());
+		
+		if(mSelectedItemsIds.get(position))
+		{
+			selectCard(true, holder.Card);
+			holder.bgSelected.setVisibility(View.VISIBLE);
+			holder.chkSelected.setVisibility(View.VISIBLE);
+		}
+		else
+		{
+			selectCard(false, holder.Card);
+			holder.bgSelected.setVisibility(View.GONE);
+			holder.chkSelected.setVisibility(View.GONE);
+		}
 
 		return convertView;
 	}

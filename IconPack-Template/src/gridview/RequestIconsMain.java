@@ -106,13 +106,13 @@ public class RequestIconsMain extends Activity {
 					numSelected--;
 				appList.remove(position);
 				appList.add(position, app);
-				appAdapter.notifyDataSetChanged();
 			}
 		});
 	}
 	
 	private void sendData()
 	{
+		appAdapter.notifyDataSetChanged();
 		StringBuilder builder = new StringBuilder();
 		builder.append("Hello " + getResources().getString(R.string.dev_name) + ",\n");
 		builder.append("these icons are missing from your icon pack:\n\n");
