@@ -17,10 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
 
 public class RequestIconsAdapter extends BaseAdapter {
 	private Context context;
@@ -38,24 +37,27 @@ public class RequestIconsAdapter extends BaseAdapter {
 		AdapterItem entry = gridItem.get(position);
 
 		if (convertView == null) {
-			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.request_item, null);
 
 			holder = new ViewHolder();
 			holder.txtCode = (TextView) convertView.findViewById(R.id.txtCode);
 			holder.txtName = (TextView) convertView.findViewById(R.id.txtName);
 			holder.imgIcon = (ImageView) convertView.findViewById(R.id.imgIcon);
-			holder.chkSelected = (ImageView) convertView.findViewById(R.id.chkSelected);
+			holder.chkSelected = (ImageView) convertView
+					.findViewById(R.id.chkSelected);
 
 			holder.Card = (FrameLayout) convertView.findViewById(R.id.Card);
-			holder.btnContact = (FrameLayout) convertView.findViewById(R.id.btnContact);
+			holder.btnContact = (FrameLayout) convertView
+					.findViewById(R.id.btnContact);
 			holder.bgSelected = convertView.findViewById(R.id.bgSelected);
-			
+
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		
+
 		holder.txtCode.setText(entry.getCode());
 		holder.txtName.setText(entry.getName());
 		holder.imgIcon.setImageDrawable(entry.getImage());
@@ -64,161 +66,144 @@ public class RequestIconsAdapter extends BaseAdapter {
 		return convertView;
 	}
 
-		public void animateView(int position, ListView list)
-		{
-			View v = list.getChildAt(position - list.getFirstVisiblePosition());
+	public void animateView(int position, GridView grid) {
+		View v = grid.getChildAt(position - grid.getFirstVisiblePosition());
 
-			ViewHolder holder = new ViewHolder();
-			holder.Card = (FrameLayout) v.findViewById(R.id.Card);
-			holder.btnContact = (FrameLayout) v.findViewById(R.id.btnContact);
-			holder.imgIcon = (ImageView) v.findViewById(R.id.imgIcon);
-			holder.chkSelected = (ImageView) v.findViewById(R.id.chkSelected);
-			holder.bgSelected = v.findViewById(R.id.bgSelected);
-			
-			if (mSelectedItemsIds.get(position))
-				animateAppDeselected(holder);
-			else
-				animateAppSelected(holder);
-			
-		}
-		private void animateAppSelected(final ViewHolder holderFinal)
-		{
-			// Declare AnimatorSets
-			final AnimatorSet animOut = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_out);
-			final AnimatorSet animIn = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_in);
-			animOut.setTarget(holderFinal.btnContact);
-			animIn.setTarget(holderFinal.btnContact);
-			animOut.addListener(new AnimatorListener()
-			{
-				@Override
-				public void onAnimationCancel(Animator animation)
-				{
-					// Nothing
-				}
+		ViewHolder holder = new ViewHolder();
+		holder.Card = (FrameLayout) v.findViewById(R.id.Card);
+		holder.btnContact = (FrameLayout) v.findViewById(R.id.btnContact);
+		holder.imgIcon = (ImageView) v.findViewById(R.id.imgIcon);
+		holder.chkSelected = (ImageView) v.findViewById(R.id.chkSelected);
+		holder.bgSelected = v.findViewById(R.id.bgSelected);
 
-				@Override
-				public void onAnimationEnd(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(true);
-					selectCard(true, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.VISIBLE);
-					holderFinal.chkSelected.setVisibility(View.VISIBLE);
-					animIn.start();
-				}
+		if (mSelectedItemsIds.get(position))
+			animateAppDeselected(holder);
+		else
+			animateAppSelected(holder);
 
-				@Override
-				public void onAnimationRepeat(Animator animation)
-				{
-					// Nothing
-				}
+	}
 
-				@Override
-				public void onAnimationStart(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(false);
-					selectCard(false, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.GONE);
-					holderFinal.chkSelected.setVisibility(View.GONE);
-				}
-			});
-			animOut.start();
-		}
-
-		private void animateAppDeselected(final ViewHolder holderFinal)
-		{
-			// Declare AnimatorSets
-			final AnimatorSet animOut = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_left_out);
-			final AnimatorSet animIn = (AnimatorSet) 
-					AnimatorInflater.loadAnimator(context, R.anim.card_flip_right_in);
-			animOut.setTarget(holderFinal.btnContact);
-			animIn.setTarget(holderFinal.btnContact);
-			animOut.addListener(new AnimatorListener()
-			{
-				@Override
-				public void onAnimationCancel(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationEnd(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(true);
-					selectCard(false, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.GONE);
-					holderFinal.chkSelected.setVisibility(View.GONE);
-					animIn.start();
-				}
-
-				@Override
-				public void onAnimationRepeat(Animator animation)
-				{
-					// Nothing
-				}
-
-				@Override
-				public void onAnimationStart(Animator animation)
-				{
-					holderFinal.btnContact.setClickable(false);
-					selectCard(true, holderFinal.Card);
-					holderFinal.bgSelected.setVisibility(View.VISIBLE);
-					holderFinal.chkSelected.setVisibility(View.VISIBLE);
-				}
-			});
-			animOut.start();
-		}
-		
-		@SuppressLint("NewApi")
-		@SuppressWarnings("deprecation")
-		private void selectCard(boolean Selected, FrameLayout Card)
-		{
-			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
-			{
-				if (Selected)
-					Card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.card_selected));
-				else
-					Card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.card_bg));
+	private void animateAppSelected(final ViewHolder holderFinal) {
+		// Declare AnimatorSets
+		final AnimatorSet animOut = (AnimatorSet) AnimatorInflater
+				.loadAnimator(context, R.anim.card_flip_right_out);
+		final AnimatorSet animIn = (AnimatorSet) AnimatorInflater.loadAnimator(
+				context, R.anim.card_flip_left_in);
+		animOut.setTarget(holderFinal.btnContact);
+		animIn.setTarget(holderFinal.btnContact);
+		animOut.addListener(new AnimatorListener() {
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// Nothing
 			}
-			else
-			{
-				if (Selected)
-					Card.setBackground(context.getResources().getDrawable(R.drawable.card_selected));
-				else
-					Card.setBackground(context.getResources().getDrawable(R.drawable.card_bg));
+
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				holderFinal.btnContact.setClickable(true);
+				selectCard(true, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.VISIBLE);
+				holderFinal.chkSelected.setVisibility(View.VISIBLE);
+				animIn.start();
 			}
-		}
-		
-		public void toggleSelection(int position)
-		{
-			selectView(position, !mSelectedItemsIds.get(position));
-		}
-		
-		public void removeSelection()
-		{
-			mSelectedItemsIds = new SparseBooleanArray();
-			notifyDataSetChanged();
-		}
-		
-		public void selectView(int position, boolean value)
-		{
-			if (value)
-				mSelectedItemsIds.put(position, value);
+
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationStart(Animator animation) {
+				holderFinal.btnContact.setClickable(false);
+				selectCard(false, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.GONE);
+				holderFinal.chkSelected.setVisibility(View.GONE);
+			}
+		});
+		animOut.start();
+	}
+
+	private void animateAppDeselected(final ViewHolder holderFinal) {
+		// Declare AnimatorSets
+		final AnimatorSet animOut = (AnimatorSet) AnimatorInflater
+				.loadAnimator(context, R.anim.card_flip_left_out);
+		final AnimatorSet animIn = (AnimatorSet) AnimatorInflater.loadAnimator(
+				context, R.anim.card_flip_right_in);
+		animOut.setTarget(holderFinal.btnContact);
+		animIn.setTarget(holderFinal.btnContact);
+		animOut.addListener(new AnimatorListener() {
+			@Override
+			public void onAnimationCancel(Animator animation) {
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				holderFinal.btnContact.setClickable(true);
+				selectCard(false, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.GONE);
+				holderFinal.chkSelected.setVisibility(View.GONE);
+				animIn.start();
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+				// Nothing
+			}
+
+			@Override
+			public void onAnimationStart(Animator animation) {
+				holderFinal.btnContact.setClickable(false);
+				selectCard(true, holderFinal.Card);
+				holderFinal.bgSelected.setVisibility(View.VISIBLE);
+				holderFinal.chkSelected.setVisibility(View.VISIBLE);
+			}
+		});
+		animOut.start();
+	}
+
+	@SuppressLint("NewApi")
+	@SuppressWarnings("deprecation")
+	private void selectCard(boolean Selected, FrameLayout Card) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+			if (Selected)
+				Card.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.card_selected));
 			else
-				mSelectedItemsIds.delete(position);
+				Card.setBackgroundDrawable(context.getResources().getDrawable(
+						R.drawable.card_bg));
+		} else {
+			if (Selected)
+				Card.setBackground(context.getResources().getDrawable(
+						R.drawable.card_selected));
+			else
+				Card.setBackground(context.getResources().getDrawable(
+						R.drawable.card_bg));
 		}
-		
-		public int getSelectedCount()
-		{
-			return mSelectedItemsIds.size();
-		}
-		
-		public SparseBooleanArray getSelectedIds()
-		{
-			return mSelectedItemsIds;
-		}
+	}
+
+	public void toggleSelection(int position) {
+		selectView(position, !mSelectedItemsIds.get(position));
+	}
+
+	public void removeSelection() {
+		mSelectedItemsIds = new SparseBooleanArray();
+		notifyDataSetChanged();
+	}
+
+	public void selectView(int position, boolean value) {
+		if (value)
+			mSelectedItemsIds.put(position, value);
+		else
+			mSelectedItemsIds.delete(position);
+	}
+
+	public int getSelectedCount() {
+		return mSelectedItemsIds.size();
+	}
+
+	public SparseBooleanArray getSelectedIds() {
+		return mSelectedItemsIds;
+	}
 
 	@Override
 	public int getCount() {

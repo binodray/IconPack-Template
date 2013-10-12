@@ -96,6 +96,8 @@ public class RequestIconsMain extends Activity {
 		{
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long index) {
+				appAdapter.animateView(position, grid);
+				appAdapter.toggleSelection(position);
 				AdapterItem app = appList.get(position);
 				app.setSelected(!app.isSelected());
 				if(app.isSelected())
