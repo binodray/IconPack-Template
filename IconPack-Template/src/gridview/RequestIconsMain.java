@@ -1,176 +1,44 @@
+/*
+ * Copyright 2013 the1dynasty and Pkmmte
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package gridview;
 
-import helper.ScrollGridView;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import helper.GlassActionBarHelper;
 import your.icons.name.here.R;
-import adapters.RequestIconsAdapter;
-import adapters.RequestIconsAdapter.AdapterItem;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
+import fragments.RequestIconsFragment;
 
-public class RequestIconsMain extends Activity {
-	// Views
-	private ScrollGridView grid;
+public class RequestIconsMain extends FragmentActivity {
+
+	private GlassActionBarHelper helper;
 	
-	// List of installed apps
-	private int numSelected;
-	private List<AdapterItem> appList;
-	private RequestIconsAdapter appAdapter;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.request_main);
 
-		initViews();
-		loadAppList();
-		initGrid();
-	}
-	
-	private void initViews()
-	{
-		grid = (ScrollGridView) findViewById(R.id.grid);
-	}
-
-	private void loadAppList() {
-		// Initialize app list
-		appList = new ArrayList<AdapterItem>();
-		numSelected = 0;
+		helper = new GlassActionBarHelper().contentLayout(R.layout.request_icons_main);
+		setContentView(helper.createView(this));
 		
-		// Create package manager and sort it
-		final PackageManager pm = getPackageManager();
-		List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-		Collections.sort(packages, new ApplicationInfo.DisplayNameComparator(pm));
-
-		// Loops through package manager to find all installed apps
-		String appCode = null;
-		String appName = null;
-		Drawable appIcon = null;
-		for (ApplicationInfo packageInfo : packages) {
-			// Examine only valid packages
-			if (pm.getLaunchIntentForPackage(packageInfo.packageName) != null && !pm.getLaunchIntentForPackage(packageInfo.packageName).equals("")) {
-
-				// Get app icon
-				appIcon = pm.getApplicationIcon(packageInfo);
-				// Get app name
-				appName = pm.getApplicationLabel(packageInfo).toString();
-				// Get app launch intent
-				String LaunchIntent = pm.getLaunchIntentForPackage(packageInfo.packageName).toString().split("cmp=")[1];
-				
-				// Trim code
-				appCode = LaunchIntent.substring(0, LaunchIntent.length() - 1);
-				if (appCode.split("/")[1].startsWith("."))
-					appCode = appCode.split("/")[0] + "/" + appCode.split("/")[0] + appCode.split("/")[1];
-				
-				// Add App to List
-				appList.add(new AdapterItem(appCode, appName, appIcon, false));
-				
-				// Nullify objects for memory
-				appCode = null;
-				appName = null;
-				appIcon = null;
-			}
-		}
-	}
-	
-	private void initGrid()
-	{
-		appAdapter = new RequestIconsAdapter(RequestIconsMain.this, appList);
-		grid.setAdapter(appAdapter);
-		grid.setOnItemClickListener(new OnItemClickListener()
-		{
-			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int position, long index) {
-				appAdapter.animateView(position, grid);
-				appAdapter.toggleSelection(position);
-				AdapterItem app = appList.get(position);
-				app.setSelected(!app.isSelected());
-				if(app.isSelected())
-					numSelected++;
-				else
-					numSelected--;
-				appList.remove(position);
-				appList.add(position, app);
-			}
-		});
-	}
-	
-	private void sendData()
-	{
-		appAdapter.notifyDataSetChanged();
-		StringBuilder builder = new StringBuilder();
-		builder.append("Hello " + getResources().getString(R.string.dev_name) + ",\n");
-		builder.append("these icons are missing from your icon pack:\n\n");
+		getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
+		getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
 		
-		for(AdapterItem app : appList)
-		{
-			if(app.isSelected())
-			{
-				builder.append("Name: " + app.getName() + "\n");
-				builder.append("Package: " + app.getCode().split("/")[0] + "\n");
-				builder.append("Activity: " + app.getCode() + "\n");
-				builder.append("Link: " + "https://play.google.com/store/apps/details?id=" + app.getCode().split("/")[0] + "\n");
-				builder.append("_______________________\n\n");
-			}
-		}
-		
-		Intent emailIntent = new Intent(Intent.ACTION_SEND);
-		emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "the1dynasty.android@gmail.com" });
-		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Icon request for " + getResources().getString(R.string.app_name));
-		emailIntent.putExtra(Intent.EXTRA_TEXT, builder.toString());
-		emailIntent.setType("plain/text");
-		
-		try
-		{
-			startActivity(Intent.createChooser(emailIntent, "Contact Developer"));
-		}
-		catch (android.content.ActivityNotFoundException ex)
-		{
-	        Toast.makeText(RequestIconsMain.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-	    }
-	}
-
-	/************************************************************************
-	 ********************* This is your submit button ***********************
-	 ************************************************************************/
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_request, menu);
-		
-		return true;
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-        switch(item.getItemId())
-        {
-        	case R.id.submitButton:
-    				if(numSelected > 0)
-    					sendData();
-    				else
-    					Toast.makeText(RequestIconsMain.this, "No apps selected", 
-    							Toast.LENGTH_SHORT).show();
-        		return true;
-        }
-        return true;
+		getSupportFragmentManager().beginTransaction()
+		.replace(R.id.containerRequest, new RequestIconsFragment())
+		.commit();
 	}
 	
 	// This will return the Activity to the Main Screen when the app is in a Paused (not used) state

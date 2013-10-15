@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-** Copyright 2013, the1dynasty
+** Copyright 2013, the1dynasty and Pkmmte
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 ** limitations under the License.
 -->
 
-<!-- Remove LinearLayout and include layout to revert back to the main page w/o the banner -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -27,19 +26,19 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical" >
-	
-		<include
+    
+		<View
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    layout="@layout/feature_banner" />
-		
+		    android:layout_height="@dimen/ab_height"
+		    android:background="@color/transparent"/>
+	
 		<FrameLayout 
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_height="match_parent"
 			android:padding="@dimen/list_padding"
 		    android:layout_gravity="center"
-		    android:id="@+id/container" />
-	
+		    android:id="@+id/containerRequest" />
+
 	</LinearLayout>
 	
 </ScrollView>

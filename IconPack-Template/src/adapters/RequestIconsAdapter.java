@@ -39,7 +39,7 @@ public class RequestIconsAdapter extends BaseAdapter {
 		if (convertView == null) {
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = inflater.inflate(R.layout.request_item, null);
+			convertView = inflater.inflate(R.layout.request_icons_layout, null);
 
 			holder = new ViewHolder();
 			holder.txtCode = (TextView) convertView.findViewById(R.id.txtCode);

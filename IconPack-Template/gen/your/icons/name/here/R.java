@@ -1005,7 +1005,7 @@ containing a value of this type.
         public static final int abNull=0x7f08002d;
         public static final int ab_null=0x7f080036;
         public static final int aboutBar=0x7f08000c;
-        public static final int aboutButton=0x7f080051;
+        public static final int aboutButton=0x7f080052;
         public static final int about_icons=0x7f08000e;
         public static final int bgSelected=0x7f08003f;
         public static final int blurredOverlay=0x7f080030;
@@ -1031,6 +1031,7 @@ containing a value of this type.
         public static final int chkSelected=0x7f080040;
         public static final int close=0x7f08002c;
         public static final int container=0x7f080035;
+        public static final int containerRequest=0x7f080043;
         public static final int container_launcher=0x7f080039;
         public static final int desc=0x7f08002f;
         public static final int description=0x7f080034;
@@ -1038,15 +1039,15 @@ containing a value of this type.
         public static final int description2=0x7f080018;
         public static final int devFont=0x7f08000d;
         public static final int disableHome=0x7f080009;
-        public static final int divider=0x7f080044;
+        public static final int divider=0x7f080045;
         public static final int divider1=0x7f080014;
         public static final int divider2=0x7f080017;
-        public static final int donateButton=0x7f080052;
-        public static final int emailButton=0x7f080050;
+        public static final int donateButton=0x7f080053;
+        public static final int emailButton=0x7f080051;
         public static final int expanded_image=0x7f08003a;
         public static final int facebook_button=0x7f080011;
         public static final int fragment1=0x7f080037;
-        public static final int gallery=0x7f080048;
+        public static final int gallery=0x7f080049;
         public static final int gplus_button=0x7f08000f;
         public static final int grid=0x7f080031;
         public static final int homeAsUp=0x7f080006;
@@ -1057,22 +1058,22 @@ containing a value of this type.
         public static final int linearLayout1=0x7f080032;
         public static final int listMode=0x7f080002;
         public static final int list_image=0x7f080033;
-        public static final int more=0x7f08004c;
-        public static final int newIconsButton=0x7f08004d;
-        public static final int next=0x7f080045;
+        public static final int more=0x7f08004d;
+        public static final int newIconsButton=0x7f08004e;
+        public static final int next=0x7f080046;
         public static final int normal=0x7f080001;
-        public static final int nowanim=0x7f080043;
-        public static final int previous=0x7f080046;
-        public static final int rateButton=0x7f08004f;
-        public static final int relativeLayout2=0x7f08004a;
+        public static final int nowanim=0x7f080044;
+        public static final int previous=0x7f080047;
+        public static final int rateButton=0x7f080050;
+        public static final int relativeLayout2=0x7f08004b;
         public static final int scrollView1=0x7f080012;
         public static final int scrollview=0x7f080019;
-        public static final int set=0x7f080049;
-        public static final int shareButton=0x7f08004e;
+        public static final int set=0x7f08004a;
+        public static final int shareButton=0x7f08004f;
         public static final int showCustom=0x7f080008;
         public static final int showHome=0x7f080005;
         public static final int showTitle=0x7f080007;
-        public static final int submitButton=0x7f080053;
+        public static final int submitButton=0x7f080054;
         public static final int tabMode=0x7f080003;
         public static final int thumb_button=0x7f08003b;
         public static final int title=0x7f08002e;
@@ -1082,8 +1083,8 @@ containing a value of this type.
         public static final int txtCode=0x7f080042;
         public static final int txtName=0x7f080041;
         public static final int useLogo=0x7f080004;
-        public static final int wallpaper=0x7f080047;
-        public static final int wallpaper_image=0x7f08004b;
+        public static final int wallpaper=0x7f080048;
+        public static final int wallpaper_image=0x7f08004c;
         public static final int wrap_content=0x7f080000;
     }
     public static final class integer {
@@ -1116,13 +1117,14 @@ containing a value of this type.
         public static final int new_icons_behind=0x7f04000b;
         public static final int new_icons_layout=0x7f04000c;
         public static final int new_icons_main=0x7f04000d;
-        public static final int request_item=0x7f04000e;
-        public static final int request_main=0x7f04000f;
-        public static final int tablet_main=0x7f040010;
-        public static final int theme_fragment=0x7f040011;
-        public static final int theme_main=0x7f040012;
-        public static final int wallpaper_chooser=0x7f040013;
-        public static final int wallpaper_item=0x7f040014;
+        public static final int request_icons_behind=0x7f04000e;
+        public static final int request_icons_layout=0x7f04000f;
+        public static final int request_icons_main=0x7f040010;
+        public static final int tablet_main=0x7f040011;
+        public static final int theme_fragment=0x7f040012;
+        public static final int theme_main=0x7f040013;
+        public static final int wallpaper_chooser=0x7f040014;
+        public static final int wallpaper_item=0x7f040015;
     }
     public static final class menu {
         public static final int menu=0x7f100000;

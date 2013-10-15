@@ -36,7 +36,7 @@ public class RequestIconsFragment extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container_launcher, Bundle savedInstanceState) {
 		setHasOptionsMenu(true);
-		View view = inflater.inflate(R.layout.request_main, null);
+		View view = inflater.inflate(R.layout.request_icons_behind, null);
 
 		initViews(view);
 		loadAppList();
@@ -95,6 +95,7 @@ public class RequestIconsFragment extends Fragment {
 	{
 		appAdapter = new RequestIconsAdapter(getActivity(), appList);
 		grid.setAdapter(appAdapter);
+		grid.setExpanded(true);
 		grid.setOnItemClickListener(new OnItemClickListener()
 		{
 			@Override
