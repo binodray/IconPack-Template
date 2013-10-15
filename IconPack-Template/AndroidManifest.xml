@@ -75,6 +75,11 @@
             android:label="@string/app_name" 
             android:icon="@drawable/icon_wall" >
         </activity>
+        <activity  
+            android:name="gridview.RequestIconsDialog" 
+            android:label="@string/app_name"
+            android:theme="@style/the1dynasty.Dialog"  >
+        </activity>
         
     <!-- This is the AboutDev Activity. Remove android:theme line if you want it to open 
     	as its own Activity and NOT a popup  -->

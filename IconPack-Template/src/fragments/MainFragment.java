@@ -1,17 +1,17 @@
 package fragments;
 
 import gridview.LauncherMain;
-import gridview.RequestIconsMain;
+import gridview.RequestIconsDialog;
 import helper.ScrollGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import your.icons.name.here.AboutThemeActivity;
+import your.icons.name.here.R;
 import your.icons.name.here.Wallpaper;
 import adapters.MainAdapter;
 import adapters.MainAdapter.AdapterItem;
-import your.icons.name.here.R;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -140,7 +140,7 @@ public class MainFragment extends Fragment{
 						}
 			    			break;
 			    		case 1:
-			    			Intent requestIcons = new Intent(getActivity(), RequestIconsMain.class);
+			    			Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
 			    			startActivity(requestIcons);
 			    			break;
 						case 2:
@@ -187,7 +187,7 @@ public class MainFragment extends Fragment{
 					}
 		    			break;
 		    		case 1:
-		    			Intent requestIcons = new Intent(getActivity(), RequestIconsMain.class);
+		    			Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
 		    			startActivity(requestIcons);
 		    			break;
 					case 2:

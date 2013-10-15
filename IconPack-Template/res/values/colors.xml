@@ -41,6 +41,9 @@
 	<color name="tab_title">#FFFFFFFF</color>
 	<color name="tab_desc">#FFFFFFFF</color>
 	
+	<color name="dialog_font_color">#FF000000</color>
+	
+	
     <color name="holo_blue_light_transparent">#4433b5e5</color>
 	
 	<!-- Misc colors -->
