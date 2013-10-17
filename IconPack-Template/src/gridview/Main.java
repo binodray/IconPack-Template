@@ -323,6 +323,7 @@ public class Main extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
+		/** This section is commented out. Uncomment to add the overflow menu back to the ActionBar **/
         /*switch(item.getItemId())
         {
         	case R.id.more:

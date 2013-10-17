@@ -71,9 +71,14 @@
             android:label="@string/new_icons_title" >
         </activity> 
         <activity  
-            android:name="gridview.RequestIconsMain" 
+            android:name="gridview.RequestIconsManualMain" 
             android:label="@string/app_name" 
-            android:icon="@drawable/icon_wall" >
+            android:icon="@drawable/icon_new" >
+        </activity>
+        <activity  
+            android:name="gridview.RequestIconsAutoMain" 
+            android:label="@string/app_name" 
+            android:icon="@drawable/icon_new" >
         </activity>
         <activity  
             android:name="gridview.RequestIconsDialog" 

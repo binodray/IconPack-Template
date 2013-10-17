@@ -21,12 +21,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class RequestIconsAdapter extends BaseAdapter {
+public class RequestIconsManualAdapter extends BaseAdapter {
 	private Context context;
 	private List<AdapterItem> gridItem;
 	private SparseBooleanArray mSelectedItemsIds;
 
-	public RequestIconsAdapter(Context context, List<AdapterItem> gridItem) {
+	public RequestIconsManualAdapter(Context context, List<AdapterItem> gridItem) {
 		this.gridItem = gridItem;
 		this.context = context;
 		this.mSelectedItemsIds = new SparseBooleanArray();

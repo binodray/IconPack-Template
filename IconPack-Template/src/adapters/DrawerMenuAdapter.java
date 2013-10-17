@@ -68,23 +68,23 @@ public class DrawerMenuAdapter extends BaseAdapter
 		{
 			case NEWLY_ADDED:
 				holder.txtTitle.setText(res.getString(R.string.title_new_icons));
-				//holder.imgIcon.setImageResource(R.drawable.selector_ic_messages);
+				holder.imgIcon.setImageResource(R.drawable.icon_new);
 				break;
 			case RATE:
 				holder.txtTitle.setText(res.getString(R.string.rateme));
-				//holder.imgIcon.setImageResource(R.drawable.selector_ic_themes);
+				holder.imgIcon.setImageResource(R.drawable.icon_rate);
 				break;
 			case CONTACT:
 				holder.txtTitle.setText(res.getString(R.string.email_dev));
-				//holder.imgIcon.setImageResource(R.drawable.selector_ic_private_box);
+				holder.imgIcon.setImageResource(R.drawable.icon_email);
 				break;
 			case ABOUT_DEVELOPER:
 				holder.txtTitle.setText(res.getString(R.string.about_dev));
-				//holder.imgIcon.setImageResource(R.drawable.selector_ic_folders);
+				holder.imgIcon.setImageResource(R.drawable.icon_dev_logo);
 				break;
 			case DONATE:
 				holder.txtTitle.setText(res.getString(R.string.donate));
-				//holder.imgIcon.setImageResource(R.drawable.selector_ic_blocker);
+				holder.imgIcon.setImageResource(R.drawable.icon_wallet);
 				break;
 		}
 		

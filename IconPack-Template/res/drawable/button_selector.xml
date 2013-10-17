@@ -14,18 +14,10 @@
 ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
--->
-
-<helper.ScrollGridView
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    xmlns:tools="http://schemas.android.com/tools" 
-        android:id="@+id/grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-	    android:numColumns="2"
-	    android:divider="@color/transparent"
-	    android:dividerHeight="0dp"
-	    android:listSelector="@color/transparent"
-	    android:cacheColorHint="@color/transparent"
-    	tools:context="gridview.RequestIconsManualMain"  />
+--> 
+ 
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@color/holo_blue" />
+    <item android:drawable="@color/transparent" />
+</selector>

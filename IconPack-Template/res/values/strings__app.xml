@@ -113,6 +113,9 @@
 	<string name="request_dialog">Would you like to manually select icons or have us automatically do this for you?</string>
 	<string name="manual">Manual</string>
 	<string name="automatic">Automatic</string>
+	
+	<string name="email_address">the1dynasty.android@gmail.com</string>
+	<string name="request_auto_desc">Gathering list of apps to email the developer!</string>
 		
 
 		<!-- Wallpaper window -->
