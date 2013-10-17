@@ -79,6 +79,8 @@
 	<string name="close">Close</string>
 	<string name="new_icons_title">Newly Added Icons</string>
   	<string name="cancel">Cancel</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
 	
 		<!-- GridView Description -->
 		<!-- Note: Try not to pass the length of the description or you will have text layout issues on the Cards -->

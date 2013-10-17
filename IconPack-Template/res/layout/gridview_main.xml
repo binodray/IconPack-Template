@@ -14,32 +14,50 @@
 ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
+
 -->
 
+
 <!-- Remove LinearLayout and include layout to revert back to the main page w/o the banner -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:background="@color/app_bg" >
-	
-	<LinearLayout 
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical" >
-	
-		<include
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    layout="@layout/feature_banner" />
-		
-		<FrameLayout 
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-			android:padding="@dimen/list_padding"
-		    android:layout_gravity="center"
-		    android:id="@+id/container" />
-	
-	</LinearLayout>
-	
-</ScrollView>
+<helper.PkDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/feature_banner" />
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/list_padding" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:clipToPadding="false"
+        android:divider="#ffd3d3d3"
+        android:dividerHeight="1dp"
+        android:paddingTop="@dimen/ab_height" />
+
+</helper.PkDrawerLayout>

@@ -23,8 +23,15 @@ package gridview;
 
 import fragments.MainFragment;
 import helper.GlassActionBarHelper;
+import helper.PkDrawerLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import your.icons.name.here.AboutDev;
 import your.icons.name.here.R;
+import adapters.DrawerMenuAdapter;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -34,21 +41,35 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.GravityCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class Main extends FragmentActivity {
 	
+	private ActionBar actionBar;
 	private SharedPreferences prefs;
 	private GlassActionBarHelper helper;
+	
+	// Navigation Drawer
+	private CharSequence mDrawerTitle;
+	private CharSequence mTitle;
+	private PkDrawerLayout mDrawerLayout;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private ListView mDrawerList;
+	private List<Integer> drawerMenuList;
+	private DrawerMenuAdapter drawerAdapter;
 
 	boolean doubleBackToExitPressedOnce = false;
 	
@@ -57,24 +78,70 @@ public class Main extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		prefs = getSharedPreferences(getResources().getString(R.string.theme_name), 0);
+		initActionBar();
+		initView();
 		checkBuild();
-
-		helper = new GlassActionBarHelper().contentLayout(R.layout.gridview_main);
-		setContentView(helper.createView(this));
-		
-		getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
-		getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
+		initDrawer();
 		
 		getSupportFragmentManager().beginTransaction()
 		.replace(R.id.container, new MainFragment())
 		.commit();
 	}
-
+	
+	private void initActionBar()
+	{
+		actionBar = getActionBar();
+		actionBar.setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
+		actionBar.setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
+		mTitle = mDrawerTitle = getTitle();
+	}
+	
+	private void initView()
+	{
+		helper = new GlassActionBarHelper().contentLayout(R.layout.gridview_main);
+		setContentView(helper.createView(this));
+		mDrawerLayout = (PkDrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+	}
+	
+	private void initDrawer()
+	{
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+		
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer_indicator, R.string.drawer_open, R.string.drawer_close)
+		{
+			public void onDrawerClosed(View view)
+			{
+				actionBar.setTitle(mTitle);
+				invalidateOptionsMenu();
+			}
+			
+			public void onDrawerOpened(View drawerView)
+			{
+				actionBar.setTitle(mDrawerTitle);
+				invalidateOptionsMenu();
+			}
+		};
+		
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		
+		drawerMenuList = new ArrayList<Integer>();
+		drawerMenuList.add(DrawerMenuAdapter.NEWLY_ADDED);
+		drawerMenuList.add(DrawerMenuAdapter.RATE);
+		drawerMenuList.add(DrawerMenuAdapter.CONTACT);
+		drawerMenuList.add(DrawerMenuAdapter.ABOUT_DEVELOPER);
+		drawerMenuList.add(DrawerMenuAdapter.DONATE);
+		drawerAdapter = new DrawerMenuAdapter(Main.this, drawerMenuList);
+		mDrawerList.setAdapter(drawerAdapter);
+	}
+	
 	/************************************************************************
 	 ******************** This is your Changelog Stuff **********************
 	 ************************************************************************/
 	public void checkBuild() {
+		prefs = getSharedPreferences(getResources().getString(R.string.theme_name), 0);
 	  int buildNum = prefs.getInt("Build Number", 1);
 	  int currentVersion = 0;
 	  
@@ -180,6 +247,27 @@ public class Main extends FragmentActivity {
 	 *********************** This is your Menu Stuff ************************
 	 ************************************************************************/
 	@Override
+	protected void onPostCreate(Bundle savedInstanceState)
+	{
+		super.onPostCreate(savedInstanceState);
+		mDrawerToggle.syncState();
+	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+		
+		mDrawerToggle.onConfigurationChanged(newConfig);
+	}
+	
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu)
+	{
+		return super.onPrepareOptionsMenu(menu);
+	}
+	
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		MenuInflater inflater = getMenuInflater();
@@ -229,7 +317,7 @@ public class Main extends FragmentActivity {
                 break;
         }
         
-        return true;
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 	}
 
 	@Override
