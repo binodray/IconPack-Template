@@ -52,8 +52,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
 public class Main extends FragmentActivity {
@@ -61,6 +64,8 @@ public class Main extends FragmentActivity {
 	private ActionBar actionBar;
 	private SharedPreferences prefs;
 	private GlassActionBarHelper helper;
+	private MenuItem shareItem;
+	private ShareActionProvider mShareActionProvider;
 	
 	// Navigation Drawer
 	private CharSequence mDrawerTitle;
@@ -135,6 +140,41 @@ public class Main extends FragmentActivity {
 		drawerMenuList.add(DrawerMenuAdapter.DONATE);
 		drawerAdapter = new DrawerMenuAdapter(Main.this, drawerMenuList);
 		mDrawerList.setAdapter(drawerAdapter);
+		
+		mDrawerList.setOnItemClickListener(new OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position, long index) {
+				switch(drawerMenuList.get(position))
+				{
+					case DrawerMenuAdapter.NEWLY_ADDED:
+						Intent newIcons = new Intent(Main.this, NewIconsMain.class);
+						startActivity(newIcons);
+						break;
+					case DrawerMenuAdapter.RATE:
+						Intent rate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=your.icons.name.here"));
+		            	startActivity(rate);
+						break;
+					case DrawerMenuAdapter.CONTACT:
+						Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+						emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] { "the1dynasty.android@gmail.com" });
+						emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getText(R.string.email_subject));
+						emailIntent.setType("plain/text");
+						startActivity(Intent.createChooser(emailIntent, "Contact Developer"));
+						break;
+					case DrawerMenuAdapter.ABOUT_DEVELOPER:
+						Intent about = new Intent(Main.this, AboutDev.class);
+						startActivity(about);
+						break;
+					case DrawerMenuAdapter.DONATE:
+						Intent donate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://bit.ly/YWwhWu"));
+		        		startActivity(donate);
+						break;
+				}
+				
+				mDrawerLayout.closeDrawer(mDrawerList);
+			}
+		});
 	}
 	
 	/************************************************************************
@@ -273,13 +313,17 @@ public class Main extends FragmentActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		
+		shareItem = menu.findItem(R.id.Share_Label);
+		mShareActionProvider = (ShareActionProvider) shareItem.getActionProvider();
+	    configureShare();
+		
 		return true;
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-        switch(item.getItemId())
+        /*switch(item.getItemId())
         {
         	case R.id.more:
         		return true;
@@ -315,7 +359,7 @@ public class Main extends FragmentActivity {
 						("http://bit.ly/YWwhWu"));
         		startActivity(donate);
                 break;
-        }
+        }*/
         
         return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 	}
@@ -337,6 +381,15 @@ public class Main extends FragmentActivity {
             }
         }, 2000);
     }
+	
+	private void configureShare()
+	{
+		Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+		shareIntent.setType("text/plain");
+		shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, getResources().getString(R.string.app_link));
+		if (mShareActionProvider != null)
+			mShareActionProvider.setShareIntent(shareIntent);
+	}
 	
 
 	/************************************************************************

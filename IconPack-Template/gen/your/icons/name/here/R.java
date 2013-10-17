@@ -1005,10 +1005,10 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Card=0x7f080045;
+        public static final int Share_Label=0x7f080055;
         public static final int abNull=0x7f08002f;
         public static final int ab_null=0x7f08003a;
         public static final int aboutBar=0x7f08000c;
-        public static final int aboutButton=0x7f08005a;
         public static final int about_icons=0x7f08000e;
         public static final int bgSelected=0x7f080047;
         public static final int blurredOverlay=0x7f080032;
@@ -1048,9 +1048,7 @@ containing a value of this type.
         public static final int divider=0x7f08004d;
         public static final int divider1=0x7f080014;
         public static final int divider2=0x7f080017;
-        public static final int donateButton=0x7f08005b;
         public static final int drawer_layout=0x7f080037;
-        public static final int emailButton=0x7f080059;
         public static final int expanded_image=0x7f08003e;
         public static final int facebook_button=0x7f080011;
         public static final int fragment1=0x7f08003b;
@@ -1067,22 +1065,18 @@ containing a value of this type.
         public static final int linearLayout1=0x7f080034;
         public static final int listMode=0x7f080002;
         public static final int list_image=0x7f080035;
-        public static final int more=0x7f080055;
-        public static final int newIconsButton=0x7f080056;
         public static final int next=0x7f08004e;
         public static final int normal=0x7f080001;
         public static final int nowanim=0x7f08004c;
         public static final int previous=0x7f08004f;
-        public static final int rateButton=0x7f080058;
         public static final int relativeLayout2=0x7f080053;
         public static final int scrollView1=0x7f080012;
         public static final int scrollview=0x7f080019;
         public static final int set=0x7f080052;
-        public static final int shareButton=0x7f080057;
         public static final int showCustom=0x7f080008;
         public static final int showHome=0x7f080005;
         public static final int showTitle=0x7f080007;
-        public static final int submitButton=0x7f08005c;
+        public static final int submitButton=0x7f080056;
         public static final int tabMode=0x7f080003;
         public static final int textView1=0x7f080040;
         public static final int thumb_button=0x7f08003f;
