@@ -4,50 +4,61 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_bg" >
+    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp" >
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="15dp"
+        android:gravity="center"
         android:text="@string/request_title"
         android:textColor="@color/holo_blue"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:background="@drawable/card_bg" />
     
-    <View
-        android:id="@+id/horizontalSeparator1"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/holo_blue" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:text="@string/request_manual"
-        android:textColor="@color/dialog_font_color"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:text="@string/request_auto"
-        android:textColor="@color/dialog_font_color"
-        android:textSize="16sp" />
     
-    <View
-        android:id="@+id/horizontalSeparator1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray_medium" />
+
+	<ScrollView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" >
+	    
+	<LinearLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="5dp"
+	    android:background="@drawable/card_bg" >
+    
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="15dp"
+	        android:text="@string/request_manual"
+	        android:textColor="@color/dialog_font_color"
+	        android:textSize="16sp" />
+	
+	    <TextView
+	        android:id="@+id/textView2"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="15dp"
+	        android:text="@string/request_auto"
+	        android:textColor="@color/dialog_font_color"
+	        android:textSize="16sp" />
+    </LinearLayout>
+    </ScrollView>
+    
+    
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
 
@@ -60,13 +71,6 @@
         android:text="@string/manual"
         android:textColor="@color/dialog_font_color" />
     
-    <View
-        android:id="@+id/horizontalSeparator1"
-        android:layout_width="1dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:background="@color/gray_medium" />
 
     <Button
         android:id="@+id/btnAuto"
@@ -77,13 +81,6 @@
         android:text="@string/automatic"
         android:textColor="@color/dialog_font_color" />
     
-    <View
-        android:id="@+id/horizontalSeparator2"
-        android:layout_width="1dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center_vertical"
-        android:background="@color/gray_medium" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -95,5 +92,5 @@
         android:textColor="@color/dialog_font_color" />
     
     </LinearLayout>
-
+</LinearLayout>
 </LinearLayout>

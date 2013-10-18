@@ -114,10 +114,8 @@
 	<string name="manual">Manual</string>
 	<string name="automatic">Automatic</string>
 	<string name="request_title">Request Icons...</string>
-	<string name="request_manual">Manual, will let you manually choose the icons to be requested.
-\nUse this option if an icon is not themed on your device.</string>
-	<string name="request_auto">Automatic, will generate a list of all your unthemed icons and send to the developer.
-\nUse this option to make our life easier.</string>
+	<string name="request_manual">Manual, will let you choose the requested icons that will be sent to the developer.</string>
+	<string name="request_auto">Automatic, will generate a list of all your unthemed icons and send it to the developer.</string>
 	
 	<string name="email_address">the1dynasty.android@gmail.com</string>
 	<string name="request_auto_desc">Gathering list of apps to email the developer!</string>
