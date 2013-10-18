@@ -15,7 +15,7 @@
 ** See the License for the specific language governing permissions and
 ** limitations under the License.
 -->
-<!-- 
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout1"
@@ -82,12 +82,12 @@
 	</RelativeLayout>
 	
 </RelativeLayout>
--->
+
 
 
 <!-- ************************************************************************************************************ -->
 
-
+<!-- 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout1"
@@ -127,8 +127,9 @@
 	    android:textColor="@color/list_title_color"
 	    android:textSize="@dimen/grid_title_text"
 	    tools:ignore="HardcodedText" />
-
+-->
 	<!-- This is the pressed animation/highlight you see when you press a list item -->
+<!-- 	
 	<ImageView
 	    android:id="@+id/imageView1"
         android:contentDescription="@string/content_description"
@@ -154,3 +155,4 @@
 	</RelativeLayout>
 	
 </RelativeLayout>
+-->

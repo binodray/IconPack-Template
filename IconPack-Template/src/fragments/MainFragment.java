@@ -35,6 +35,12 @@ public class MainFragment extends Fragment{
 	
 	ScrollGridView gridView;
 	final List<AdapterItem> listOfStuff = new ArrayList<AdapterItem>();
+	
+	// Flag Constants
+	public static final int ABOUT_THEME = 0;
+	public static final int APPLY_LAUNCHER = 1;
+	public static final int WALLPAPER = 2;
+	public static final int REQUEST_ICONS = 3;
 
 	// This is the background layout that gets inflated behind the list view
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -67,34 +73,34 @@ public class MainFragment extends Fragment{
 		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
 		if (tabletSize) {
 			gridView = (ScrollGridView)getView().findViewById(R.id.grid);
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
-					getResources().getString (R.string.desc_oss), 0));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
-					getResources().getString (R.string.desc_request), 1));
 			listOfStuff.remove(new AdapterItem(getResources().getString (R.string.title_info), 
-					getResources().getString (R.string.desc_info), 2));
+					getResources().getString (R.string.desc_info), 0));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_apply), 
-					getResources().getString (R.string.desc_apply), 3));
+					getResources().getString (R.string.desc_apply), 1));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_walls), 
-					getResources().getString (R.string.desc_walls), 4));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
-					getResources().getString (R.string.desc_community), 5));
+					getResources().getString (R.string.desc_walls), 2));
+			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
+					getResources().getString (R.string.desc_request), 3));
+			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
+				//getResources().getString (R.string.desc_oss), 0));
+			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
+					//getResources().getString (R.string.desc_community), 5));
 
 			
 		} else {
 			gridView = (ScrollGridView)getView().findViewById(R.id.grid);
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
-					getResources().getString (R.string.desc_oss), 0));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
-					getResources().getString (R.string.desc_request), 1));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_info), 
-					getResources().getString (R.string.desc_info), 2));
+					getResources().getString (R.string.desc_info), 0));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_apply), 
-					getResources().getString (R.string.desc_apply), 3));
+					getResources().getString (R.string.desc_apply), 1));
 			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_walls), 
-					getResources().getString (R.string.desc_walls), 4));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
-					getResources().getString (R.string.desc_community), 5));
+					getResources().getString (R.string.desc_walls), 2));
+			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
+					getResources().getString (R.string.desc_request), 3));
+			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
+					//getResources().getString (R.string.desc_oss), 0));
+			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
+					//getResources().getString (R.string.desc_community), 5));
 		}
 
 		/**
@@ -115,102 +121,38 @@ public class MainFragment extends Fragment{
 					boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
 					if (tabletSize) { // for tablets
 						
-						switch (position) {
-						case 0:
-							/** 
-							 ** This checks if MY OSS app is installed. You can remove this case
-							 ** statement completely or add your own app to check against or leave
-							 ** it and let it check for MY app :D
-							 ** If it is installed, the app will open when you press the list item
-							 ** If it is NOT installed, it will open up the play store to download it
-							 ** Change line 136 with the play store link for your own app if you're 
-							 ** using this feature!
-							 **/
-							if(isPackageExists("app.the1dynasty.oss")){
-								Intent oss = new Intent("android.intent.action.MAIN");
-								oss.setComponent(ComponentName.unflattenFromString
-										("app.the1dynasty.oss/app.activities.MainActivity"));
-								oss.addCategory("android.intent.category.LAUNCHER");
-								startActivity(oss);
-							}
-							else{
-								Intent oss = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-										("market://details?id=app.the1dynasty.oss"));
-								startActivity(oss);
-						}
-			    			break;
-			    		case 1:
-			    			Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
-			    			startActivity(requestIcons);
-			    			break;
-						case 2:
-							Intent launcher = new Intent(getActivity(), LauncherMain.class);
-							startActivity(launcher);
-			        		break;
-						case 3:
-							Intent wall = new Intent(getActivity(), Wallpaper.class);
-							startActivity(wall);
-			        		break;
-						case 4:
-							/** 
-							 ** This launches my community on G+
-							 ** Please leave this link in here for others to join. Thank You!
-							 **/
-							Intent gpCommunity = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-									("http://bit.ly/14F6Eez"));
-			          		startActivity(gpCommunity);
-			        		break;
+					switch (position) {
+					case APPLY_LAUNCHER:
+						Intent launcher = new Intent(getActivity(), LauncherMain.class);
+						startActivity(launcher);
+			        	break;
+					case WALLPAPER:
+						Intent wall = new Intent(getActivity(), Wallpaper.class);
+						startActivity(wall);
+			        	break;
+			    	case REQUEST_ICONS:
+			    		Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
+			    		startActivity(requestIcons);
+			    		break;
 		}	
 				} else {	// for phones
 					switch (position) {
-					case 0:
-						/** 
-						 ** This checks if MY OSS app is installed. You can remove this
-						 ** section completely or Add your own app to check against or leave
-						 ** it and let it check for MY app :D
-						 ** If it is installed, the app will open when you press the list item
-						 ** If it is NOT installed, it will open up the play store to download it
-						 ** Change line 195 with the play store link for your own app if you're 
-						 ** using this feature!
-						 **/
-						if(isPackageExists("app.the1dynasty.oss")){
-							Intent oss = new Intent("android.intent.action.MAIN");
-							oss.setComponent(ComponentName.unflattenFromString
-									("app.the1dynasty.oss/app.activities.MainActivity"));
-							oss.addCategory("android.intent.category.LAUNCHER");
-							startActivity(oss);
-						}
-						else{
-							Intent oss = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-									("market://details?id=app.the1dynasty.oss"));
-							startActivity(oss);
-					}
-		    			break;
-		    		case 1:
-		    			Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
-		    			startActivity(requestIcons);
-		    			break;
-					case 2:
+					case ABOUT_THEME:
 						Intent aboutTheme = new Intent(getActivity(), AboutThemeActivity.class);
 						startActivity(aboutTheme);
 		        		break;
-					case 3:
+					case APPLY_LAUNCHER:
 						Intent launcher = new Intent(getActivity(), LauncherMain.class);
 						startActivity(launcher);
 		        		break;
-					case 4:
+					case WALLPAPER:
 						Intent wall = new Intent(getActivity(), Wallpaper.class);
 						startActivity(wall);
 		        		break;
-					case 5:
-						/** 
-						 ** This launches my community on G+
-						 ** Please leave this link in here for others to join. Thank You!
-						 **/
-						Intent gpCommunity = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-								("http://bit.ly/14F6Eez"));
-		          		startActivity(gpCommunity);
-		        		break;
+		    		case REQUEST_ICONS:
+		    			Intent requestIcons = new Intent(getActivity(), RequestIconsDialog.class);
+		    			startActivity(requestIcons);
+		    			break;
 		        		
 					}
 				}
@@ -220,7 +162,7 @@ public class MainFragment extends Fragment{
 	 ** This is the code needed to check the package in case 0
 	 ** If you remove that check, you can remove this code too
 	 ** Leaving it here won't harm anything either
-	 **/
+	 **
 	public boolean isPackageExists(String targetPackage){
 		  List<ApplicationInfo> packages;
 		  PackageManager pm;
@@ -230,8 +172,8 @@ public class MainFragment extends Fragment{
 		  if(packageInfo.packageName.equals(targetPackage)) return true;
 		  }  
 		  return false;
-		  }
+		  }**/	
 			});
-			
+		
 	}
 }

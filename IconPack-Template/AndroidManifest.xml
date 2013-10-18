@@ -46,7 +46,7 @@
     <application 
         android:allowBackup="true"
         android:label="@string/app_name" 
-        android:icon="@drawable/icon"
+        android:icon="@drawable/ic_launcher"
         android:theme="@style/the1dynasty.Theme" 
         android:largeHeap="true" >
     <!-- Use AppTheme_Dark for the dark version of some windows -->

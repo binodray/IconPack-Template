@@ -19,11 +19,13 @@ public class DrawerMenuAdapter extends BaseAdapter
 	private Resources res;
 	
 	// Flag Constants
-	public static final int NEWLY_ADDED = 0;
-	public static final int RATE = 1;
-	public static final int CONTACT = 2;
-	public static final int ABOUT_DEVELOPER = 3;
-	public static final int DONATE = 4;
+	public static final int DYNASTY_OSS = 0;
+	public static final int NEWLY_ADDED = 1;
+	public static final int RATE = 2;
+	public static final int CONTACT = 3;
+	public static final int ABOUT_DEVELOPER = 4;
+	public static final int COMMUNITY = 5;
+	public static final int DONATE = 6;
 	
 	public DrawerMenuAdapter(Context context, List<Integer> listItem)
 	{
@@ -66,6 +68,10 @@ public class DrawerMenuAdapter extends BaseAdapter
 		
 		switch(listItem.get(position))
 		{
+			case DYNASTY_OSS:
+				holder.txtTitle.setText(res.getString(R.string.title_app));
+				holder.imgIcon.setImageResource(R.drawable.icon_oss);
+				break;
 			case NEWLY_ADDED:
 				holder.txtTitle.setText(res.getString(R.string.title_new_icons));
 				holder.imgIcon.setImageResource(R.drawable.icon_new);
@@ -81,6 +87,10 @@ public class DrawerMenuAdapter extends BaseAdapter
 			case ABOUT_DEVELOPER:
 				holder.txtTitle.setText(res.getString(R.string.about_dev));
 				holder.imgIcon.setImageResource(R.drawable.icon_dev_logo);
+				break;
+			case COMMUNITY:
+				holder.txtTitle.setText(res.getString(R.string.title_community));
+				holder.imgIcon.setImageResource(R.drawable.icon_community);
 				break;
 			case DONATE:
 				holder.txtTitle.setText(res.getString(R.string.donate));

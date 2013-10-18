@@ -36,9 +36,11 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
@@ -133,10 +135,12 @@ public class Main extends FragmentActivity {
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 		
 		drawerMenuList = new ArrayList<Integer>();
+		drawerMenuList.add(DrawerMenuAdapter.DYNASTY_OSS);
 		drawerMenuList.add(DrawerMenuAdapter.NEWLY_ADDED);
 		drawerMenuList.add(DrawerMenuAdapter.RATE);
 		drawerMenuList.add(DrawerMenuAdapter.CONTACT);
 		drawerMenuList.add(DrawerMenuAdapter.ABOUT_DEVELOPER);
+		drawerMenuList.add(DrawerMenuAdapter.COMMUNITY);
 		drawerMenuList.add(DrawerMenuAdapter.DONATE);
 		drawerAdapter = new DrawerMenuAdapter(Main.this, drawerMenuList);
 		mDrawerList.setAdapter(drawerAdapter);
@@ -147,6 +151,27 @@ public class Main extends FragmentActivity {
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long index) {
 				switch(drawerMenuList.get(position))
 				{
+				case DrawerMenuAdapter.DYNASTY_OSS:
+					/** 
+					 ** This checks if MY OSS app is installed. You can remove this case
+					 ** statement completely or add your own app to check against or leave
+					 ** it and let it check for MY app :D
+					 ** If it is installed, the app will open when you press the list item
+					 ** If it is NOT installed, it will open up the play store to download it
+					 **/
+					if(isPackageExists("app.the1dynasty.oss")){
+						Intent oss = new Intent("android.intent.action.MAIN");
+						oss.setComponent(ComponentName.unflattenFromString
+								("app.the1dynasty.oss/app.activities.MainActivity"));
+						oss.addCategory("android.intent.category.LAUNCHER");
+						startActivity(oss);
+					}
+					else{
+						Intent oss = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+								("market://details?id=app.the1dynasty.oss"));
+						startActivity(oss);
+				}
+	    			break;
 					case DrawerMenuAdapter.NEWLY_ADDED:
 						Intent newIcons = new Intent(Main.this, NewIconsMain.class);
 						startActivity(newIcons);
@@ -166,6 +191,15 @@ public class Main extends FragmentActivity {
 						Intent about = new Intent(Main.this, AboutDev.class);
 						startActivity(about);
 						break;
+					case DrawerMenuAdapter.COMMUNITY:
+						/** 
+						 ** This launches my community on G+
+						 ** Please leave this link in here for others to join. Thank You!
+						 **/
+						Intent gpCommunity = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+								("http://bit.ly/14F6Eez"));
+		          		startActivity(gpCommunity);
+		        		break;
 					case DrawerMenuAdapter.DONATE:
 						Intent donate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://bit.ly/YWwhWu"));
 		        		startActivity(donate);
@@ -270,7 +304,7 @@ public class Main extends FragmentActivity {
 				}
 			});
 			
-		 // Change line 88 with the URL to YOUR app
+		 // Change line 326 with the URL to YOUR app
 			builder.setPositiveButton(getResources().getString (R.string.get), new OnClickListener(){
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
@@ -396,6 +430,23 @@ public class Main extends FragmentActivity {
 	/************************************************************************
 	 ************ This is the end of checking for installed app *************
 	 ************************************************************************/
+	
+	/** 
+	 ** This is the code needed to check the package in case 0
+	 ** If you remove that check, you can remove this code too
+	 ** Leaving it here won't harm anything either
+	 **/
+	public boolean isPackageExists(String targetPackage){
+		  List<ApplicationInfo> packages;
+		  PackageManager pm;
+		  pm = this.getPackageManager();
+		  packages = pm.getInstalledApplications(0);
+		  for (ApplicationInfo packageInfo : packages) {
+		  if(packageInfo.packageName.equals(targetPackage)) return true;
+		  }  
+		  return false;
+		  }
+
 	private boolean isAppInstalled(String packageName){
 		// Tool we need to parse other packages
 		PackageManager pm = getPackageManager();

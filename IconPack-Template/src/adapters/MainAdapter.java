@@ -17,6 +17,12 @@ import your.icons.name.here.R;
 public class MainAdapter extends BaseAdapter{
 	private Context context;
 	private List<AdapterItem> gridItem;
+	
+	// Flag Constants
+	public static final int ABOUT_THEME = 0;
+	public static final int APPLY_LAUNCHER = 1;
+	public static final int WALLPAPER = 2;
+	public static final int REQUEST_ICONS = 3;
 
 	public MainAdapter(Context context, List<AdapterItem> gridItem) {
 		this.gridItem = gridItem;
@@ -65,35 +71,25 @@ public class MainAdapter extends BaseAdapter{
 			 * You can reference any drawable
 			 */
 			switch(entry.getID()){
-			case 0:
-				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
-				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
-				holder.icon_Image.setImageResource(R.drawable.icon_oss);
-				break;
-			case 1:
-				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
-				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
-				holder.icon_Image.setImageResource(R.drawable.icon_new);
-				break;
-			case 2:
+			case ABOUT_THEME:
 				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
 				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
 				holder.icon_Image.setImageResource(R.drawable.icon_info);
 				break;
-			case 3:
+			case APPLY_LAUNCHER:
 				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
 				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
 				holder.icon_Image.setImageResource(R.drawable.icon_launcher);
 				break;
-			case 4:
+			case WALLPAPER:
 				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
 				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
 				holder.icon_Image.setImageResource(R.drawable.icon_wall);
 				break;
-			case 5:
+			case REQUEST_ICONS:
 				holder.title.setTextColor(context.getResources().getColor(R.color.list_title_color));
 				holder.text.setTextColor(context.getResources().getColor(R.color.list_desc_color));
-				holder.icon_Image.setImageResource(R.drawable.icon_community);
+				holder.icon_Image.setImageResource(R.drawable.icon_new);
 				break;
 			}
 			holder.text.setText(entry.getDescription());
