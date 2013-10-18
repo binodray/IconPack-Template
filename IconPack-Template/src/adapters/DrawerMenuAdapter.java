@@ -70,31 +70,31 @@ public class DrawerMenuAdapter extends BaseAdapter
 		{
 			case DYNASTY_OSS:
 				holder.txtTitle.setText(res.getString(R.string.title_app));
-				holder.imgIcon.setImageResource(R.drawable.icon_oss);
+				holder.imgIcon.setImageResource(R.drawable.ic_oss);
 				break;
 			case NEWLY_ADDED:
 				holder.txtTitle.setText(res.getString(R.string.title_new_icons));
-				holder.imgIcon.setImageResource(R.drawable.icon_new);
+				holder.imgIcon.setImageResource(R.drawable.ic_new_icons);
 				break;
 			case RATE:
 				holder.txtTitle.setText(res.getString(R.string.rateme));
-				holder.imgIcon.setImageResource(R.drawable.icon_rate);
+				holder.imgIcon.setImageResource(R.drawable.ic_rating);
 				break;
 			case CONTACT:
 				holder.txtTitle.setText(res.getString(R.string.email_dev));
-				holder.imgIcon.setImageResource(R.drawable.icon_email);
+				holder.imgIcon.setImageResource(R.drawable.ic_contact);
 				break;
 			case ABOUT_DEVELOPER:
 				holder.txtTitle.setText(res.getString(R.string.about_dev));
-				holder.imgIcon.setImageResource(R.drawable.icon_dev_logo);
+				holder.imgIcon.setImageResource(R.drawable.ic_about_dev);
 				break;
 			case COMMUNITY:
 				holder.txtTitle.setText(res.getString(R.string.title_community));
-				holder.imgIcon.setImageResource(R.drawable.icon_community);
+				holder.imgIcon.setImageResource(R.drawable.ic_community);
 				break;
 			case DONATE:
 				holder.txtTitle.setText(res.getString(R.string.donate));
-				holder.imgIcon.setImageResource(R.drawable.icon_wallet);
+				holder.imgIcon.setImageResource(R.drawable.ic_donate);
 				break;
 		}
 		
