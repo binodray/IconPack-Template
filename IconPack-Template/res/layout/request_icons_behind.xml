@@ -28,4 +28,4 @@
 	    android:dividerHeight="0dp"
 	    android:listSelector="@color/transparent"
 	    android:cacheColorHint="@color/transparent"
-    	tools:context="gridview.RequestIconsManualMain"  />
+    	tools:context="gridview.RequestIconsMain"  />

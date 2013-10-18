@@ -20,9 +20,9 @@ import helper.GlassActionBarHelper;
 import your.icons.name.here.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import fragments.RequestIconsManualFragment;
+import fragments.RequestIconsFragment;
 
-public class RequestIconsManualMain extends FragmentActivity {
+public class RequestIconsMain extends FragmentActivity {
 
 	private GlassActionBarHelper helper;
 	
@@ -37,7 +37,7 @@ public class RequestIconsManualMain extends FragmentActivity {
 		getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
 		
 		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.containerRequest, new RequestIconsManualFragment())
+		.replace(R.id.containerRequest, new RequestIconsFragment())
 		.commit();
 	}
 	

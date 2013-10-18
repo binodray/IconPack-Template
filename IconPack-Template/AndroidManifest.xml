@@ -26,6 +26,7 @@
     <!-- Permission required for setting the wallpaper -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <!-- This lets this code work on any screen size -->
     <supports-screens 
@@ -71,12 +72,7 @@
             android:label="@string/new_icons_title" >
         </activity> 
         <activity  
-            android:name="gridview.RequestIconsManualMain" 
-            android:label="@string/app_name" 
-            android:icon="@drawable/icon_new" >
-        </activity>
-        <activity  
-            android:name="gridview.RequestIconsAutoMain" 
+            android:name="gridview.RequestIconsMain" 
             android:label="@string/app_name" 
             android:icon="@drawable/icon_new" >
         </activity>

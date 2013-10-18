@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 import your.icons.name.here.R;
-import adapters.RequestIconsManualAdapter;
-import adapters.RequestIconsManualAdapter.AdapterItem;
+import adapters.RequestIconsAdapter;
+import adapters.RequestIconsAdapter.AdapterItem;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -25,14 +25,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class RequestIconsManualFragment extends Fragment {
+public class RequestIconsFragment extends Fragment {
 	// Views
 	private ScrollGridView grid;
 
 	// List of installed apps
 	private int numSelected;
 	private List<AdapterItem> appList;
-	private RequestIconsManualAdapter appAdapter;
+	private RequestIconsAdapter appAdapter;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container_launcher, Bundle savedInstanceState) {
 		setHasOptionsMenu(true);
@@ -93,7 +93,7 @@ public class RequestIconsManualFragment extends Fragment {
 	
 	private void initGrid()
 	{
-		appAdapter = new RequestIconsManualAdapter(getActivity(), appList);
+		appAdapter = new RequestIconsAdapter(getActivity(), appList);
 		grid.setAdapter(appAdapter);
 		grid.setExpanded(true);
 		grid.setOnItemClickListener(new OnItemClickListener()
