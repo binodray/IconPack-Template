@@ -6,13 +6,44 @@
     android:background="@color/app_bg" >
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:text="@string/request_title"
+        android:textColor="@color/holo_blue"
+        android:textSize="22sp" />
+    
+    <View
+        android:id="@+id/horizontalSeparator1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/holo_blue" />
+
+    <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:gravity="center"
-        android:text="@string/request_dialog"
-        android:textColor="@color/dialog_font_color" />
+        android:padding="15dp"
+        android:text="@string/request_manual"
+        android:textColor="@color/dialog_font_color"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/request_auto"
+        android:textColor="@color/dialog_font_color"
+        android:textSize="16sp" />
+    
+    <View
+        android:id="@+id/horizontalSeparator1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_medium" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +66,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:background="@color/black" />
+        android:background="@color/gray_medium" />
 
     <Button
         android:id="@+id/btnAuto"
@@ -52,7 +83,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:gravity="center_vertical"
-        android:background="@color/black" />
+        android:background="@color/gray_medium" />
 
     <Button
         android:id="@+id/btnCancel"

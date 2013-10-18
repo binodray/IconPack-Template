@@ -104,7 +104,7 @@
   		<!-- App Check Stuff -->
 	<string name="alert_start_title">You Are AWESOME!!!</string>
 	<string name="alert_start_desc">You also have my One-Stop-Shop App installed. 
-	    n\n\ Be sure to visit that app for more themes and other downloads!</string>
+	    \n\nBe sure to visit that app for more themes and other downloads!</string>
 	<string name="error_start_title">Ohnoes!!!</string>
 	<string name="error_start_desc">We have detected that you do not have my One-Stop-Shop App installed.
 	     Would you like to download it for FREE now?</string>
@@ -113,6 +113,11 @@
 	<string name="request_dialog">Would you like to manually select icons or have us automatically do this for you?</string>
 	<string name="manual">Manual</string>
 	<string name="automatic">Automatic</string>
+	<string name="request_title">Request Icons...</string>
+	<string name="request_manual">Manual, will let you manually choose the icons to be requested.
+\nUse this option if an icon is not themed on your device.</string>
+	<string name="request_auto">Automatic, will generate a list of all your unthemed icons and send to the developer.
+\nUse this option to make our life easier.</string>
 	
 	<string name="email_address">the1dynasty.android@gmail.com</string>
 	<string name="request_auto_desc">Gathering list of apps to email the developer!</string>

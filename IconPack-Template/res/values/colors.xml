@@ -41,6 +41,8 @@
 	<color name="tab_title">#FFFFFFFF</color>
 	<color name="tab_desc">#FFFFFFFF</color>
 	
+	<color name="button_pressed_color">#8833b5e5</color>
+	
 	<color name="dialog_font_color">#FF000000</color>
 	
 	
