@@ -20,61 +20,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     
-<LinearLayout 
-        android:id="@+id/ab_null"
-        android:contentDescription="@string/content_description"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="horizontal"
-		android:baselineAligned="false"
-		android:background="@color/app_bg" >
+	<LinearLayout 
+	        android:id="@+id/ab_null"
+	        android:contentDescription="@string/content_description"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center_horizontal"
+			android:orientation="horizontal"
+			android:baselineAligned="false"
+			android:background="@color/app_bg" >
+			
+			<LinearLayout 
+				android:layout_width="950dp"
+				android:layout_height="match_parent"
+				android:orientation="horizontal"
+				android:paddingTop="@dimen/ab_height" >
+			
+			<LinearLayout 
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight=".45" >
 		
-		<LinearLayout 
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_weight=".65"
-			android:orientation="vertical" >
+				<include
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					layout="@layout/tablet_main" />
+				
+			</LinearLayout>
 			
-				<View
-				    android:layout_width="match_parent"
-				    android:layout_height="@dimen/ab_height"
-				    android:background="@color/transparent"/>
-	    <fragment
-	        android:id="@+id/fragment1"
-	        android:name="fragments.AboutThemeFragment"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent" />
-	    
-	    </LinearLayout>
-	    
-		<LinearLayout 
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_weight=".35"
-			android:orientation="vertical" >
+			<LinearLayout 
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight=".55" >
+					
+			    <fragment
+			        android:id="@+id/fragment1"
+			        android:name="fragments.AboutThemeFragment"
+			        android:layout_width="match_parent"
+			        android:layout_height="match_parent" />
+		    </LinearLayout>
+		    
+		    </LinearLayout>
+	        
+	</LinearLayout>
 			
-				<View
-				    android:layout_width="match_parent"
-				    android:layout_height="@dimen/ab_height"
-				    android:background="@color/transparent"/>
-	
-			    <include
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        layout="@layout/tablet_main" />
-	    </LinearLayout>
-        
-</LinearLayout>
-
-    <ListView
-        android:id="@+id/left_drawer"
-        android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/app_bg_translucent_50"
-        android:clipToPadding="false"
-        android:divider="#ffd3d3d3"
-        android:dividerHeight="1dp"
-        android:paddingTop="@dimen/ab_height" />
+			    <ListView
+			        android:id="@+id/left_drawer"
+			        android:layout_width="280dp"
+			        android:layout_height="match_parent"
+			        android:layout_gravity="start"
+			        android:background="#ddffffff"
+			        android:clipToPadding="false"
+			        android:divider="#ffd3d3d3"
+			        android:dividerHeight="1dp"
+			        android:paddingTop="@dimen/ab_height" />
 
 </helper.PkDrawerLayout>

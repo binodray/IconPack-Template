@@ -14,7 +14,7 @@
     <dimen name="launcher_grid_margin">20dp</dimen>
     <dimen name="about_dev_height">180dp</dimen>
     <dimen name="flatview_icon">78dp</dimen>
-    <dimen name="listview_icon">150dp</dimen>
+    <dimen name="listview_icon">128dp</dimen>
     <dimen name="icon_padding">8dp</dimen>
     <dimen name="icon_padding_bottom">16dp</dimen>
     <dimen name="dialog_small">14sp</dimen>
@@ -29,13 +29,13 @@
     <dimen name="abs__alert_dialog_title_height">64dp</dimen>
     
     <!-- Tablet dimensions -->
-    <dimen name="banner_height">150dp</dimen>
+    <dimen name="banner_height">170dp</dimen>
     <dimen name="banner_title_margin">60dp</dimen>
     <dimen name="banner_title">26sp</dimen>
     <dimen name="banner_desc">20sp</dimen>
     
     <dimen name="column_width">160dp</dimen>
-    <dimen name="row_height">170dp</dimen>
+    <dimen name="row_height">158dp</dimen>
     
     <dimen name="ab_height">56dp</dimen>
     

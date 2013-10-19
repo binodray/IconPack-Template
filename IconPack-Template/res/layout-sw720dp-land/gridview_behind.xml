@@ -24,7 +24,7 @@
     android:layout_height="match_parent"
 	android:padding="@dimen/list_icon"
     android:columnWidth="@dimen/column_width"
-    android:numColumns="2"
+    android:numColumns="1"
     android:stretchMode="columnWidth"
     android:gravity="center"
     android:divider="@color/transparent"
