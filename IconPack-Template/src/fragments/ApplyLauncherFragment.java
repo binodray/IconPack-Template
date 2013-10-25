@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import your.icons.name.here.R;
-import adapters.LauncherAdapter;
-import adapters.LauncherAdapter.LauncherItem;
+import adapters.ApplyLauncherAdapter;
+import adapters.ApplyLauncherAdapter.LauncherItem;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -20,14 +20,19 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
-/**
- ** Some lines may be off a few numbers Just be sure you're in the general area
- **/
-
-public class LauncherFragment extends Fragment {
+public class ApplyLauncherFragment extends Fragment {
 
 	GridView gridView;
-	final List<LauncherItem> launcherStuff = new ArrayList<LauncherItem>();
+	final List<LauncherItem> applyLauncher = new ArrayList<LauncherItem>();
+
+	// Flag Constants
+	public static final int APEX_LAUNCHER = 0;
+	public static final int NOVA_LAUNCHER = 1;
+	public static final int HOLO_LAUNCHER = 2;
+	public static final int ADW_LAUNCHER = 3;
+	public static final int ACTION_LAUNCHER = 4;
+	public static final int NEXT_LAUNCHER = 5;
+	public static final int CANCEL = 6;
 
 	// This is the background layout that gets inflated behind the list view
 	public View onCreateView(LayoutInflater inflater, ViewGroup container_launcher,
@@ -42,17 +47,17 @@ public class LauncherFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		launcherStuff.add(new LauncherItem("Apex", 0));
-		launcherStuff.add(new LauncherItem("Nova", 1));
-		launcherStuff.add(new LauncherItem("Holo", 2));
-		launcherStuff.add(new LauncherItem("ADW", 3));
-		launcherStuff.add(new LauncherItem("Action", 4));
-		launcherStuff.add(new LauncherItem("Go", 5));
-		launcherStuff.add(new LauncherItem("Next", 6));
-		launcherStuff.add(new LauncherItem("Cancel", 7));
+		applyLauncher.add(new LauncherItem("Apex", 0));
+		applyLauncher.add(new LauncherItem("Nova", 1));
+		applyLauncher.add(new LauncherItem("Holo", 2));
+		applyLauncher.add(new LauncherItem("ADW", 3));
+		applyLauncher.add(new LauncherItem("Action", 4));
+		applyLauncher.add(new LauncherItem("Go", 5));
+		applyLauncher.add(new LauncherItem("Next", 6));
+		applyLauncher.add(new LauncherItem("Cancel", 7));
 
-		LauncherAdapter adapter = new LauncherAdapter(getActivity(),
-				launcherStuff);
+		ApplyLauncherAdapter adapter = new ApplyLauncherAdapter(getActivity(),
+				applyLauncher);
 
 		gridView.setAdapter(adapter);
 		gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -70,7 +75,7 @@ public class LauncherFragment extends Fragment {
 				MainFragment gridContentT = null;
 
 				switch (position) {
-				case 0:
+				case APEX_LAUNCHER:
 					Intent apex = new Intent(ACTION_SET_THEME);
 					apex.putExtra(EXTRA_PACKAGE_NAME, getActivity().getPackageName());
 					apex.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -95,12 +100,13 @@ public class LauncherFragment extends Fragment {
 					}
 
 					break;
-				case 1:
+				case NOVA_LAUNCHER:
 					Intent nova = new Intent(ACTION_APPLY_ICON_THEME);
 					nova.setPackage(NOVA_PACKAGE);
-					nova.putExtra(EXTRA_ICON_THEME_TYPE, "GO");
+					nova.putExtra(EXTRA_ICON_THEME_TYPE, 
+							getResources().getString (R.string.go));
 					nova.putExtra(EXTRA_ICON_THEME_PACKAGE,
-							"your.icons.name.here");
+							getResources().getString (R.string.package_name));
 					try {
 						startActivity(nova);
 					} catch (ActivityNotFoundException e) {
@@ -116,16 +122,16 @@ public class LauncherFragment extends Fragment {
 						failedNova.show();
 					}
 					break;
-				case 2:
+				case HOLO_LAUNCHER:
 					Toast failedHolo = Toast.makeText(getActivity().getBaseContext(),
 							getResources().getString (R.string.not_supported),
 							Toast.LENGTH_LONG);
 					failedHolo.show();
 					break;
-				case 3:
+				case ADW_LAUNCHER:
 					Intent adw = new Intent("org.adw.launcher.SET_THEME");
 					adw.putExtra("org.adw.launcher.theme.NAME",
-							"your.icons.name.here");
+							getResources().getString (R.string.package_name));
 					try {
 						startActivity(Intent.createChooser(adw,
 								"activating theme..."));
@@ -143,12 +149,12 @@ public class LauncherFragment extends Fragment {
 					} 
 					((Activity) getActivity()).finish();
 					break;
-				case 4:
+				case ACTION_LAUNCHER:
 					Intent al = getActivity().getPackageManager().getLaunchIntentForPackage(
 							"com.chrislacy.actionlauncher.pro");
 					if (al != null) {
 
-						String packageName = "your.icons.name.here";
+						String packageName = getResources().getString (R.string.package_name);
 						al.putExtra("apply_icon_pack", packageName);
 						startActivity(al);
 					} else {
@@ -164,31 +170,7 @@ public class LauncherFragment extends Fragment {
 						failedAL.show();
 					}
 					break;
-				case 5:
-					Intent goApply = getActivity().getPackageManager().getLaunchIntentForPackage(
-							"com.gau.go.launcherex");
-					if (goApply != null) {
-						Intent go = new Intent("com.gau.go.launcherex.MyThemes.mythemeaction");
-		                go.putExtra("type",1);
-		                go.putExtra("pkgname", getActivity().getPackageName());
-		                getActivity().sendBroadcast(go);
-						Toast appliedGo = Toast
-		                .makeText(getActivity().getBaseContext(), getResources().getString
-		                		(R.string.go_applied), Toast.LENGTH_LONG);
-						appliedGo.show();
-						startActivity(goApply); 
-				   } else {
-						Intent goMarket = new Intent(Intent.ACTION_VIEW);
-						goMarket.setData(Uri.parse("market://details?id=com.anddoes.launcher"));
-						startActivity(goMarket);
-						
-						Toast failedGo = Toast
-						.makeText(getActivity().getBaseContext(), getResources().getString 
-								(R.string.go_market), Toast.LENGTH_SHORT);
-						failedGo.show();
-					}
-					break;
-				case 6:
+				case NEXT_LAUNCHER:
 					Toast failedNext = Toast.makeText(getActivity().getBaseContext(),
 							getResources().getString (R.string.not_supported),
 							Toast.LENGTH_LONG);
@@ -197,7 +179,7 @@ public class LauncherFragment extends Fragment {
 				/* This is your cancel button
 				 * Always leave this as the last item
 				 */
-				case 7:
+				case CANCEL:
 					((Activity) getActivity()).finish();
 					break;
 				}

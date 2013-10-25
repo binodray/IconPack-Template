@@ -1,4 +1,4 @@
-package gridview;
+package main;
 
 import your.icons.name.here.R;
 import android.os.Bundle;

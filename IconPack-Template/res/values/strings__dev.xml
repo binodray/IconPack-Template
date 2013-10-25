@@ -19,9 +19,6 @@
 <!-- Be sure to edit these strings according to how your requirements -->
 
 <resources>
-
-		<!-- This link will appear at the end of the theme description -->
-	<string name="app_link">https://play.google.com/store/apps/details?id=your.icons.name.here</string>
 	
 	<string name="developer_link">https://play.google.com/store/apps/developer?id=the1dynasty</string>
 	<string name="developer_name">the1dynasty</string>

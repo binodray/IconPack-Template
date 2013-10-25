@@ -1,13 +1,11 @@
-package gridview;
+package main;
 
 import your.icons.name.here.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.Window;
-import android.view.WindowManager;
-import fragments.LauncherFragment;
+import fragments.ApplyLauncherFragment;
 
-public class LauncherMain extends FragmentActivity {
+public class ApplyLauncherMain extends FragmentActivity {
 
 	// Starts the Activity for the list view
 	@Override
@@ -16,7 +14,8 @@ public class LauncherMain extends FragmentActivity {
 		setContentView(R.layout.launcher_main);
 		
 		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.container_launcher, new LauncherFragment())
+		.replace(R.id.container_launcher, 
+				new ApplyLauncherFragment())
 		.commit();
 	}
 

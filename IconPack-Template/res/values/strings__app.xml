@@ -113,11 +113,28 @@
 	<string name="request_dialog">Would you like to manually select icons or have us automatically do this for you?</string>
 	<string name="manual">Manual</string>
 	<string name="automatic">Automatic</string>
-	<string name="request_title">Request Icons...</string>
+	<string name="request_title">Request Icons</string>
 	<string name="request_manual">Manual, will let you choose the requested icons that will be sent to the developer.</string>
 	<string name="request_auto">Automatic, will generate a list of all your unthemed icons and send it to the developer.</string>
 	
+	<string name="back_twice">Please press BACK again to exit</string>
+	<string name="package_name">your.icons.name.here</string>
 	<string name="email_address">the1dynasty.android@gmail.com</string>
+	<string name="link_gplus_community">http://bit.ly/14F6Eez</string>
+	<string name="link_donate">http://bit.ly/YWwhWu</string>
+	<string name="link_gplus">https://plus.google.com/110748421773388678236/posts</string>
+	<string name="link_twitter">https://twitter.com/the1dynasty</string>
+	<string name="link_facebook">https://www.facebook.com/pages/The1dynasty/428692913887012</string>
+	
+	<string name="go">Go</string>
+	<string name="please_wait">Please wait</string>
+	<string name="building_list">Building list of installed apps</string>
+	
+	<!-- This will need to be changed to match the package name of your pack 
+		 If not changed, it will just link users to this template -->
+	<string name="link_share">Sharing this amazing theme! 
+	    https://play.google.com/store/apps/details?id=your.icons.name.here @the1dynasty</string>
+	
 	<string name="request_auto_desc">Gathering list of apps to email the developer!</string>
 		
 

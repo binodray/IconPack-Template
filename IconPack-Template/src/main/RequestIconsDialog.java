@@ -1,4 +1,4 @@
-package gridview;
+package main;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -62,7 +62,7 @@ public class RequestIconsDialog extends Activity {
               public void onClick(View v) {
               	Intent manual = new Intent(Intent.ACTION_MAIN);
               	manual.setComponent(new ComponentName
-              			("your.icons.name.here", 
+              			(getResources().getString (R.string.package_name), 
               					"gridview.RequestIconsMain"));
               	startActivity(manual);
               }	
@@ -83,7 +83,8 @@ public class RequestIconsDialog extends Activity {
 			public void onClick(View v) {
 
 				pbarDialog = ProgressDialog.show(RequestIconsDialog.this,
-						"Please wait...", "Building list of installed apps...", true);
+						getResources().getString (R.string.please_wait), 
+						getResources().getString (R.string.building_list), true);
 
 				Thread lancelinkspThread = new Thread()
 				{

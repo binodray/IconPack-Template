@@ -7,8 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,65 +17,56 @@ public class AboutDev extends Activity {
     facebook,
     gplus;
 	
-	// This creates your About Dev Activity
+	  // This creates your About Dev Activity
 	@Override
 	  public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
 	  setContentView(R.layout.about_dev);  
       
-      Typeface font1 = Typeface.createFromAsset(getAssets(), "RobotoSlab-Regular.ttf");
+	  // These are your fonts
+      Typeface fontType = Typeface.createFromAsset(getAssets(), "RobotoSlab-Regular.ttf");
+      
       TextView txt1 = (TextView) findViewById(R.id.devFont);
-      txt1.setTypeface(font1); 
+      txt1.setTypeface(fontType); 
       TextView title1 = (TextView) findViewById(R.id.title1);
-      title1.setTypeface(font1); 
+      title1.setTypeface(fontType); 
       TextView desc1 = (TextView) findViewById(R.id.description1);
-      desc1.setTypeface(font1); 
+      desc1.setTypeface(fontType); 
       TextView title2 = (TextView) findViewById(R.id.title2);
-      title2.setTypeface(font1); 
+      title2.setTypeface(fontType); 
       TextView desc2 = (TextView) findViewById(R.id.description2);
-      desc2.setTypeface(font1); 
-
+      desc2.setTypeface(fontType); 
+      
+      // Your ImageButton links
       gplus = (ImageButton) findViewById(R.id.gplus_button);
       gplus.setOnClickListener(new OnClickListener() {
               public void onClick(View v) {
-              	try {
-              		final Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://plus.google.com/110748421773388678236/posts"));
-              		startActivity(intent);
-              	} 
-              	catch (RuntimeException gp) {
-              		gp.printStackTrace();
-              	}	
+            		Intent gplusIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+            				(getResources().getString(R.string.link_gplus)));
+                  		startActivity(gplusIntent);
               }
       });
       
       twitter = (ImageButton) findViewById(R.id.twitter_button);
       twitter.setOnClickListener(new OnClickListener() {
               public void onClick(View v) {
-              	try {
-              		final Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://twitter.com/the1dynasty"));
-              		startActivity(intent);
-              	} 
-              	catch (RuntimeException tw) {
-              		tw.printStackTrace();
-              	}	
+              		Intent twitterIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+              				(getResources().getString(R.string.link_twitter)));
+              		startActivity(twitterIntent);
               }
       });
       
       facebook = (ImageButton) findViewById(R.id.facebook_button);
       facebook.setOnClickListener(new OnClickListener() {
               public void onClick(View v) {
-              	try {
-              		final Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.facebook.com/pages/The1dynasty/428692913887012"));
-              		startActivity(intent);
-              	} 
-              	catch (RuntimeException tw) {
-              		tw.printStackTrace();
-              	}	
+              		Intent facebookIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+              				(getResources().getString(R.string.link_facebook)));
+              		startActivity(facebookIntent);
               }
       });
 }
 	
-	// This will return the Activity to the Main Screen when the app is in a Paused (not used) state
+	  // This will return the Activity to the Main Screen when the app is in a Paused (not used) state
 	@Override
 	  public void onPause(){
 		  super.onPause();

@@ -1,22 +1,18 @@
 package fragments;
 
-import gridview.LauncherMain;
-import gridview.RequestIconsDialog;
 import helper.ScrollGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import main.ApplyLauncherMain;
+import main.RequestIconsDialog;
 import your.icons.name.here.AboutThemeActivity;
 import your.icons.name.here.R;
 import your.icons.name.here.Wallpaper;
 import adapters.MainAdapter;
 import adapters.MainAdapter.AdapterItem;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,7 +30,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class MainFragment extends Fragment{
 	
 	ScrollGridView gridView;
-	final List<AdapterItem> listOfStuff = new ArrayList<AdapterItem>();
+	final List<AdapterItem> mainGrid = new ArrayList<AdapterItem>();
 	
 	// Flag Constants
 	public static final int ABOUT_THEME = 0;
@@ -73,34 +69,34 @@ public class MainFragment extends Fragment{
 		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
 		if (tabletSize) {
 			gridView = (ScrollGridView)getView().findViewById(R.id.grid);
-			listOfStuff.remove(new AdapterItem(getResources().getString (R.string.title_info), 
+			mainGrid.remove(new AdapterItem(
+					getResources().getString (R.string.title_info), 
 					getResources().getString (R.string.desc_info), 0));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_apply), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_apply), 
 					getResources().getString (R.string.desc_apply), 1));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_walls), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_walls), 
 					getResources().getString (R.string.desc_walls), 2));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_request), 
 					getResources().getString (R.string.desc_request), 3));
-			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
-				//getResources().getString (R.string.desc_oss), 0));
-			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
-					//getResources().getString (R.string.desc_community), 5));
 
 			
 		} else {
 			gridView = (ScrollGridView)getView().findViewById(R.id.grid);
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_info), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_info), 
 					getResources().getString (R.string.desc_info), 0));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_apply), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_apply), 
 					getResources().getString (R.string.desc_apply), 1));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_walls), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_walls), 
 					getResources().getString (R.string.desc_walls), 2));
-			listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_request), 
+			mainGrid.add(new AdapterItem(
+					getResources().getString (R.string.title_request), 
 					getResources().getString (R.string.desc_request), 3));
-			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_app), 
-					//getResources().getString (R.string.desc_oss), 0));
-			//listOfStuff.add(new AdapterItem(getResources().getString (R.string.title_community), 
-					//getResources().getString (R.string.desc_community), 5));
 		}
 
 		/**
@@ -108,7 +104,7 @@ public class MainFragment extends Fragment{
 		 ** section. Be sure to remove both parts to remove it from phones and tablets. Failure to remove both
 		 ** parts will result in the app functioning differently on phones and tablets.
 		 **/
-			MainAdapter adapter = new MainAdapter(getActivity(), listOfStuff);
+			MainAdapter adapter = new MainAdapter(getActivity(), mainGrid);
 	
 			gridView.setAdapter(adapter);
 			gridView.setExpanded(true);
@@ -123,7 +119,7 @@ public class MainFragment extends Fragment{
 						
 					switch (position) {
 					case APPLY_LAUNCHER:
-						Intent launcher = new Intent(getActivity(), LauncherMain.class);
+						Intent launcher = new Intent(getActivity(), ApplyLauncherMain.class);
 						startActivity(launcher);
 			        	break;
 					case WALLPAPER:
@@ -142,7 +138,7 @@ public class MainFragment extends Fragment{
 						startActivity(aboutTheme);
 		        		break;
 					case APPLY_LAUNCHER:
-						Intent launcher = new Intent(getActivity(), LauncherMain.class);
+						Intent launcher = new Intent(getActivity(), ApplyLauncherMain.class);
 						startActivity(launcher);
 		        		break;
 					case WALLPAPER:
@@ -158,21 +154,6 @@ public class MainFragment extends Fragment{
 				}
 				}	
 				
-	/** 
-	 ** This is the code needed to check the package in case 0
-	 ** If you remove that check, you can remove this code too
-	 ** Leaving it here won't harm anything either
-	 **
-	public boolean isPackageExists(String targetPackage){
-		  List<ApplicationInfo> packages;
-		  PackageManager pm;
-		  pm = getActivity().getPackageManager();
-		  packages = pm.getInstalledApplications(0);
-		  for (ApplicationInfo packageInfo : packages) {
-		  if(packageInfo.packageName.equals(targetPackage)) return true;
-		  }  
-		  return false;
-		  }**/	
 			});
 		
 	}

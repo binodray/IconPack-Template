@@ -14,30 +14,24 @@
  * limitations under the License.
  */
 
-package gridview;
+package main;
 
-import helper.GlassActionBarHelper;
 import your.icons.name.here.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import fragments.RequestIconsFragment;
+import fragments.NewIconsFragment;
 
-public class RequestIconsMain extends FragmentActivity {
+public class NewIconsMain extends FragmentActivity {
 
-	private GlassActionBarHelper helper;
-	
+	// Starts the Activity for the gridview
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		helper = new GlassActionBarHelper().contentLayout(R.layout.request_icons_main);
-		setContentView(helper.createView(this));
-		
-		getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
-		getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title
+		setContentView(R.layout.new_icons_main);
 		
 		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.containerRequest, new RequestIconsFragment())
+		.replace(R.id.container_launcher, 
+				new NewIconsFragment())
 		.commit();
 	}
 	

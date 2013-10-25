@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package gridview;
+package main;
 
 /** 
  ** Some lines may be off a few numbers
@@ -91,7 +91,8 @@ public class Main extends FragmentActivity {
 		initDrawer();
 		
 		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.container, new MainFragment())
+		.replace(R.id.container, 
+				new MainFragment())
 		.commit();
 	}
 	
@@ -117,7 +118,10 @@ public class Main extends FragmentActivity {
 	{
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 		
-		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer_indicator, R.string.drawer_open, R.string.drawer_close)
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, 
+				R.drawable.ic_drawer_indicator, 
+				R.string.drawer_open, 
+				R.string.drawer_close)
 		{
 			public void onDrawerClosed(View view)
 			{
@@ -177,13 +181,16 @@ public class Main extends FragmentActivity {
 						startActivity(newIcons);
 						break;
 					case DrawerMenuAdapter.RATE:
-						Intent rate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=your.icons.name.here"));
+						Intent rate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+								("market://details?id=your.icons.name.here"));
 		            	startActivity(rate);
 						break;
 					case DrawerMenuAdapter.CONTACT:
 						Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-						emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] { "the1dynasty.android@gmail.com" });
-						emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getText(R.string.email_subject));
+						emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, 
+								new String[]{getString(R.string.email_address)});
+						emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, 
+								getResources().getText(R.string.email_subject));
 						emailIntent.setType("plain/text");
 						startActivity(Intent.createChooser(emailIntent, "Contact Developer"));
 						break;
@@ -197,11 +204,12 @@ public class Main extends FragmentActivity {
 						 ** Please leave this link in here for others to join. Thank You!
 						 **/
 						Intent gpCommunity = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
-								("http://bit.ly/14F6Eez"));
+	              				(getResources().getString(R.string.link_gplus_community)));
 		          		startActivity(gpCommunity);
 		        		break;
 					case DrawerMenuAdapter.DONATE:
-						Intent donate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://bit.ly/YWwhWu"));
+						Intent donate = new Intent(Intent.ACTION_VIEW).setData(Uri.parse
+	              				(getResources().getString(R.string.link_donate)));
 		        		startActivity(donate);
 						break;
 				}
@@ -357,7 +365,7 @@ public class Main extends FragmentActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		/** This section is commented out. Uncomment to add the overflow menu back to the ActionBar **/
+		/** This section is commented out. Remove comments to add the overflow menu back to the ActionBar **/
         /*switch(item.getItemId())
         {
         	case R.id.more:
@@ -406,7 +414,8 @@ public class Main extends FragmentActivity {
             return;
         }
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, (getResources().getString(R.string.back_twice)), 
+        		Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -421,7 +430,8 @@ public class Main extends FragmentActivity {
 	{
 		Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
-		shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, getResources().getString(R.string.app_link));
+		shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, 
+				getResources().getString(R.string.link_share));
 		if (mShareActionProvider != null)
 			mShareActionProvider.setShareIntent(shareIntent);
 	}

@@ -53,7 +53,7 @@
         
     <!-- Main Activity that launches when you open the app from the drawer -->
         <activity
-            android:name="gridview.Main"
+            android:name="main.Main"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,16 +68,16 @@
             android:screenOrientation="portrait" >
         </activity>  
 		<activity 
-            android:name="gridview.NewIconsMain"
+            android:name="main.NewIconsMain"
             android:label="@string/new_icons_title" >
         </activity> 
         <activity  
-            android:name="gridview.RequestIconsMain" 
+            android:name="main.RequestIconsMain" 
             android:label="@string/app_name" 
             android:icon="@drawable/icon_new" >
         </activity>
         <activity  
-            android:name="gridview.RequestIconsDialog" 
+            android:name="main.RequestIconsDialog" 
             android:label="@string/app_name"
             android:theme="@style/the1dynasty.Dialog"  >
         </activity>
@@ -92,7 +92,7 @@
     <!-- This is the Activity Dialog that pops up when selecting to apply your Icon Pack
     	Remove android:theme line if you want it to open as its own Activity and NOT a popup -->
 		<activity 
-            android:name="gridview.LauncherMain"
+            android:name="main.ApplyLauncherMain"
             android:label="@string/launcher_title"
             android:theme="@style/the1dynasty.Dialog" >
         </activity>

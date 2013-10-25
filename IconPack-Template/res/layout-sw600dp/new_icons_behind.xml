@@ -33,7 +33,7 @@
 	    android:dividerHeight="0dp"
 	    android:listSelector="@color/transparent"
 	    android:cacheColorHint="@color/transparent" 
-	    tools:context="gridview.NewIconsMain" />
+	    tools:context="main.NewIconsMain" />
 
 	<!-- This is your zoomed in image after you click on a GridView item -->
     <ImageView

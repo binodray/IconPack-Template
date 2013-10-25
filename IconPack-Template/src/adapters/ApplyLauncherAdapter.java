@@ -12,11 +12,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LauncherAdapter extends BaseAdapter{
+public class ApplyLauncherAdapter extends BaseAdapter
+{
 	private Context context;
 	private List<LauncherItem> gridItem;
 
-	public LauncherAdapter(Context context, List<LauncherItem> gridItem) {
+	// Flag Constants
+	public static final int APEX_LAUNCHER = 0;
+	public static final int NOVA_LAUNCHER = 1;
+	public static final int HOLO_LAUNCHER = 2;
+	public static final int ADW_LAUNCHER = 3;
+	public static final int ACTION_LAUNCHER = 4;
+	public static final int NEXT_LAUNCHER = 5;
+	public static final int CANCEL = 6;
+
+	public ApplyLauncherAdapter(Context context, List<LauncherItem> gridItem) {
 		this.gridItem = gridItem;
 		this.context = context;
 	}
@@ -52,66 +62,65 @@ public class LauncherAdapter extends BaseAdapter{
 			holder.title.setTypeface(tfTitle);
 			
 			switch(entry.getID()){
-			case 0:
+			case APEX_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_apex);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_apex);
 				break;
-			case 1:
+			case NOVA_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_nova);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_nova);
 				break;
-			case 2:
+			case HOLO_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_holo);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_holo);
 				break;
-			case 3:
+			case ADW_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_adw);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_adw);
 				break;
-			case 4:
+			case ACTION_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_al);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_al);
 				break;
-			case 5:
-				/** Use this first option for the newer single column look **/
-				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
-				holder.launcher_Image.setImageResource(R.mipmap.banner_go);
-				/** Use this second option for the traditional Dialog popup **/
-				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
-				//holder.launcher_Image.setImageResource(R.mipmap.icon_go);
-				break;
-			case 6:
+			case NEXT_LAUNCHER:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_next);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_next);
 				break;
-			case 7:
+			case CANCEL:
 				/** Use this first option for the newer single column look **/
 				holder.title.setTextColor(context.getResources().getColor(R.color.gray_light2));
 				holder.launcher_Image.setImageResource(R.mipmap.banner_cancel);
+				
 				/** Use this second option for the traditional Dialog popup **/
 				//holder.title.setTextColor(context.getResources().getColor(R.color.black));
 				//holder.launcher_Image.setImageResource(R.mipmap.icon_cancel);

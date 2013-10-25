@@ -1171,60 +1171,59 @@ containing a value of this type.
          */
         public static final int alert_start_title=0x7f0a004d;
         public static final int apex_market=0x7f0a0010;
-        /**  This link will appear at the end of the theme description 
-         */
-        public static final int app_link=0x7f0a0073;
         /**  Label for app name in launcher 
  Edit these two strings to match your theme name 
          */
         public static final int app_name=0x7f0a0001;
         public static final int automatic=0x7f0a0053;
         public static final int back_button=0x7f0a0033;
+        public static final int back_twice=0x7f0a0057;
+        public static final int building_list=0x7f0a0061;
         public static final int cancel=0x7f0a003c;
         /**  Version Number: Add more or remove some 
          */
-        public static final int changelog_1=0x7f0a0061;
-        public static final int changelog_2=0x7f0a0062;
-        public static final int changelog_3=0x7f0a0063;
-        public static final int changelog_4=0x7f0a0064;
-        public static final int changelog_5=0x7f0a0065;
-        public static final int changelog_6=0x7f0a0066;
-        public static final int changelog_7=0x7f0a0067;
-        public static final int changelog_8=0x7f0a0068;
-        public static final int changelog_9=0x7f0a0069;
+        public static final int changelog_1=0x7f0a006c;
+        public static final int changelog_2=0x7f0a006d;
+        public static final int changelog_3=0x7f0a006e;
+        public static final int changelog_4=0x7f0a006f;
+        public static final int changelog_5=0x7f0a0070;
+        public static final int changelog_6=0x7f0a0071;
+        public static final int changelog_7=0x7f0a0072;
+        public static final int changelog_8=0x7f0a0073;
+        public static final int changelog_9=0x7f0a0074;
         /**  Changelog Info 
          */
-        public static final int changelog_title=0x7f0a0060;
+        public static final int changelog_title=0x7f0a006b;
         /**  ***************************** NOTES *****************************
 			 \n = new line
 		 	 &#8226; = bullets 
  Changelog 1 
          */
-        public static final int cl_list_1=0x7f0a006a;
+        public static final int cl_list_1=0x7f0a0075;
         /**  Changelog 2 
          */
-        public static final int cl_list_2=0x7f0a006b;
+        public static final int cl_list_2=0x7f0a0076;
         /**  Changelog 3 
          */
-        public static final int cl_list_3=0x7f0a006c;
+        public static final int cl_list_3=0x7f0a0077;
         /**  Changelog 4 
          */
-        public static final int cl_list_4=0x7f0a006d;
+        public static final int cl_list_4=0x7f0a0078;
         /**  Changelog 5 
          */
-        public static final int cl_list_5=0x7f0a006e;
+        public static final int cl_list_5=0x7f0a0079;
         /**  Changelog 6 
          */
-        public static final int cl_list_6=0x7f0a006f;
+        public static final int cl_list_6=0x7f0a007a;
         /**  Changelog 7 
          */
-        public static final int cl_list_7=0x7f0a0070;
+        public static final int cl_list_7=0x7f0a007b;
         /**  Changelog 8 
          */
-        public static final int cl_list_8=0x7f0a0071;
+        public static final int cl_list_8=0x7f0a007c;
         /**  Changelog 9 
          */
-        public static final int cl_list_9=0x7f0a0072;
+        public static final int cl_list_9=0x7f0a007d;
         public static final int close=0x7f0a003a;
         /**  ADW Stuff 
  1=top dots, 2=top slider, 3=bottom slider, 4=ics slider 
@@ -1234,11 +1233,11 @@ containing a value of this type.
         /**  This wallpaper will be used when a user applies the theme 
          */
         public static final int default_wallpaper=0x7f0a0000;
-        public static final int desc_about=0x7f0a005e;
+        public static final int desc_about=0x7f0a0069;
         public static final int desc_apply=0x7f0a0042;
         public static final int desc_community=0x7f0a0044;
-        public static final int desc_donate=0x7f0a005f;
-        public static final int desc_email=0x7f0a005d;
+        public static final int desc_donate=0x7f0a006a;
+        public static final int desc_email=0x7f0a0068;
         public static final int desc_gplus=0x7f0a0045;
         public static final int desc_info=0x7f0a0041;
         public static final int desc_new_icons=0x7f0a0040;
@@ -1246,35 +1245,36 @@ containing a value of this type.
  Note: Try not to pass the length of the description or you will have text layout issues on the Cards 
          */
         public static final int desc_oss=0x7f0a003f;
-        public static final int desc_rate=0x7f0a005c;
+        public static final int desc_rate=0x7f0a0067;
         public static final int desc_request=0x7f0a0046;
         /**  Unused Strings: You CAN Delete these if you use the default setup 
          */
-        public static final int desc_share=0x7f0a005b;
+        public static final int desc_share=0x7f0a0066;
         public static final int desc_walls=0x7f0a0043;
-        public static final int dev_bio=0x7f0a007a;
-        public static final int dev_bio_title=0x7f0a0077;
-        public static final int dev_description=0x7f0a0079;
-        public static final int dev_name=0x7f0a0076;
-        public static final int developer_link=0x7f0a0074;
-        public static final int developer_name=0x7f0a0075;
+        public static final int dev_bio=0x7f0a0084;
+        public static final int dev_bio_title=0x7f0a0081;
+        public static final int dev_description=0x7f0a0083;
+        public static final int dev_name=0x7f0a0080;
+        public static final int developer_link=0x7f0a007e;
+        public static final int developer_name=0x7f0a007f;
         public static final int divider=0x7f0a0035;
         public static final int donate=0x7f0a002f;
         public static final int drawer_close=0x7f0a003e;
         public static final int drawer_open=0x7f0a003d;
         /**  Dummy Content 
          */
-        public static final int dummy_desc=0x7f0a005a;
+        public static final int dummy_desc=0x7f0a0065;
         public static final int dynasty_app=0x7f0a002b;
-        public static final int email_address=0x7f0a0057;
+        public static final int email_address=0x7f0a0059;
         public static final int email_dev=0x7f0a002e;
-        public static final int email_subject=0x7f0a007c;
+        public static final int email_subject=0x7f0a0086;
         public static final int error_start_desc=0x7f0a0050;
         public static final int error_start_title=0x7f0a004f;
         /**  Applied Toast Messages 
          */
         public static final int finish_apply=0x7f0a000f;
         public static final int get=0x7f0a0037;
+        public static final int go=0x7f0a005f;
         public static final int go_applied=0x7f0a000e;
         public static final int go_market=0x7f0a0015;
         public static final int googleme=0x7f0a0028;
@@ -1291,6 +1291,15 @@ containing a value of this type.
         public static final int launcher_holo=0x7f0a0049;
         public static final int launcher_nova=0x7f0a0048;
         public static final int launcher_title=0x7f0a004c;
+        public static final int link_donate=0x7f0a005b;
+        public static final int link_facebook=0x7f0a005e;
+        public static final int link_gplus=0x7f0a005c;
+        public static final int link_gplus_community=0x7f0a005a;
+        /**  This will need to be changed to match the package name of your pack 
+		 If not changed, it will just link users to this template 
+         */
+        public static final int link_share=0x7f0a0062;
+        public static final int link_twitter=0x7f0a005d;
         /**  Force the theme to use an specific dock style 
   0=None, 1=3buttons, 2=5buttons, 3=1button 
          */
@@ -1305,21 +1314,23 @@ containing a value of this type.
         public static final int not_supported=0x7f0a0017;
         public static final int nova_market=0x7f0a0011;
         public static final int ok=0x7f0a0039;
+        public static final int package_name=0x7f0a0058;
+        public static final int please_wait=0x7f0a0060;
         public static final int rateme=0x7f0a0030;
         public static final int request_auto=0x7f0a0056;
-        public static final int request_auto_desc=0x7f0a0058;
+        public static final int request_auto_desc=0x7f0a0063;
         /**  Request Icons 
          */
         public static final int request_dialog=0x7f0a0051;
         public static final int request_manual=0x7f0a0055;
         public static final int request_title=0x7f0a0054;
         public static final int share=0x7f0a0038;
-        public static final int share_text=0x7f0a007b;
+        public static final int share_text=0x7f0a0085;
         public static final int submit=0x7f0a0026;
         /**  This string shows up inside the setting to Apply the theme on Apex Launcher. I don't recommend changing it 
          */
         public static final int theme_description=0x7f0a0009;
-        public static final int theme_description_app=0x7f0a0078;
+        public static final int theme_description_app=0x7f0a0082;
         /**  Apex Previews 
          */
         public static final int theme_feature=0x7f0a0003;
@@ -1355,7 +1366,7 @@ containing a value of this type.
         public static final int twitterme=0x7f0a0029;
         /**  Wallpaper window 
          */
-        public static final int wall_apply=0x7f0a0059;
+        public static final int wall_apply=0x7f0a0064;
         public static final int wall_picker=0x7f0a002a;
     }
     public static final class style {

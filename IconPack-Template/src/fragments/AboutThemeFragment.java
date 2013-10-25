@@ -1,6 +1,6 @@
 package fragments;
 
-import gridview.AboutThemeMain;
+import main.AboutThemeMain;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.GestureDetector;

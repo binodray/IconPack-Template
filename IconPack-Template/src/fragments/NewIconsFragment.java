@@ -21,17 +21,15 @@ import helper.ScrollGridView;
 import java.util.ArrayList;
 import java.util.List;
 
+import your.icons.name.here.R;
 import adapters.NewIconsAdapter;
 import adapters.NewIconsAdapter.NewIconName;
-import your.icons.name.here.R;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,7 +40,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class NewIconsFragment extends Fragment {
 
 	private static Animator mCurrentAnimator;
@@ -50,7 +47,7 @@ public class NewIconsFragment extends Fragment {
 	
 	static ImageView expandedImageView;
 	ScrollGridView gridView;
-	final List<NewIconName> newIconStuff = new ArrayList<NewIconName>();
+	final List<NewIconName> newIconList = new ArrayList<NewIconName>();
 
 	// This is the background layout that gets inflated behind the list view
 	public View onCreateView(LayoutInflater inflater, ViewGroup container_launcher,
@@ -71,15 +68,15 @@ public class NewIconsFragment extends Fragment {
 		 *********************** Add New Icon Names here ************************
 		 ******************** This also adds each new item **********************
 		 ************************************************************************/
-		newIconStuff.add(new NewIconName("Apex", 0));
-		newIconStuff.add(new NewIconName("Nova", 1));
-		newIconStuff.add(new NewIconName("Holo", 2));
-		newIconStuff.add(new NewIconName("ADW", 3));
-		newIconStuff.add(new NewIconName("Action", 4));
+		newIconList.add(new NewIconName("Apex", 0));
+		newIconList.add(new NewIconName("Nova", 1));
+		newIconList.add(new NewIconName("Holo", 2));
+		newIconList.add(new NewIconName("ADW", 3));
+		newIconList.add(new NewIconName("Action", 4));
 
 		
 		NewIconsAdapter adapter = new NewIconsAdapter(getActivity(),
-				newIconStuff);
+				newIconList);
 
 		gridView.setAdapter(adapter);
 		gridView.setOnItemClickListener(new OnItemClickListener() {

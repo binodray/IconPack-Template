@@ -43,4 +43,4 @@
     android:background="@color/app_bg_translucent_50"
     android:listSelector="@color/transparent"
     android:cacheColorHint="@color/transparent" 
-    tools:context="gridview.LauncherMain"/>
+    tools:context="main.ApplyLauncherMain"/>
