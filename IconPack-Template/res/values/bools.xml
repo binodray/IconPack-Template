@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
     <bool name="isTablet">false</bool>
 	
 	<bool name="use_drawer_icons_bg">false</bool>
@@ -8,4 +9,9 @@
 	<bool name="config_drawerLabels">true</bool>
 	<bool name="config_fadeDrawerLabels">false</bool>
 	<bool name="config_desktop_indicator">true</bool>
+	
+		<!-- Apex Theme settings -->
+	<bool name="config_apexskin">true</bool>
+	<bool name="config_iconpack">true</bool>
+	
 </resources>
