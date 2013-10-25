@@ -76,22 +76,4 @@
 	<dimen name="grid_title_text">14sp</dimen>
 	<dimen name="launcher_title">48sp</dimen>
 	
-	
-	<!-- DONE 
-	<dimen name="header_height">68dp</dimen>
-	<dimen name="launcher_grid_margin">20dp</dimen>
-	<dimen name="gridview_icon">98dp</dimen>
-	<dimen name="list_icon_right">14dp</dimen>
-	<dimen name="activity_horizontal_margin">16dp</dimen>
-	<dimen name="activity_vertical_margin">16dp</dimen>
-	<dimen name="left_right_list_margin">4dp</dimen>
-	<dimen name="padding_new_icons_name">4dp</dimen>
-	<dimen name="dialog_center">3dp</dimen>
-	<dimen name="about_title_margin">5dp</dimen>
-	<dimen name="icon_margin">5dp</dimen>
-	<dimen name="list_icon">5dp</dimen>
-	<dimen name="list_padding">3dp</dimen>
-	
-	-->
-
 </resources>

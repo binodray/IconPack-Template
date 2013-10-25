@@ -42,8 +42,5 @@
 	<!-- MISC -->
     <dimen name="list_title_text">22sp</dimen>
     <dimen name="list_desc_text">18sp</dimen>
-    
-    
-    
-    
+        
 </resources>
