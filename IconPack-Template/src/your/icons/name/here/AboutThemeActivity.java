@@ -29,7 +29,7 @@ public class AboutThemeActivity extends Activity {
 	@Override
 	  public void onCreate(Bundle savedInstanceState) {
 	  super.onCreate(savedInstanceState);
-	  setContentView(R.layout.theme_fragment);
+	  setContentView(R.layout.theme_preview_fragment);
 		
 	  getActionBar().setDisplayShowHomeEnabled(true); // Set this to false to hide AB Icon
 	  getActionBar().setDisplayShowTitleEnabled(true); // Set this to false to hide AB Title

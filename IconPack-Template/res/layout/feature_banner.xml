@@ -39,7 +39,7 @@
         android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/list_padding"
+        android:padding="@dimen/margin_small_sm"
         android:text="@string/developer_name"
         android:textColor="@color/tab_desc"
         android:textSize="@dimen/banner_desc"

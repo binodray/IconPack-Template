@@ -39,7 +39,7 @@ public class ApplyLauncherAdapter extends BaseAdapter
 			LayoutInflater inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-			v = inflater.inflate(R.layout.launcher_layout, null);
+			v = inflater.inflate(R.layout.apply_launcher_layout, null);
 			
 			holder = new ViewHolder();
 			holder.title = (TextView) v.findViewById(R.id.title);

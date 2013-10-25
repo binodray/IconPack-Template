@@ -8,8 +8,8 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/left_right_margin"
-        android:layout_marginRight="@dimen/left_right_margin"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
         android:scrollbars="none"
         android:layout_weight="30" >
         
@@ -25,7 +25,7 @@
             android:id="@+id/change9"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_9"
             android:textColor="@color/list_title_color"
             android:textSize="@dimen/list_title_text" />
@@ -43,7 +43,7 @@
             android:id="@+id/change8"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_8"
             android:textColor="@color/list_title_color"
             android:textSize="@dimen/list_title_text" />
@@ -60,7 +60,7 @@
             android:id="@+id/change7"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_7"
             android:textColor="@color/list_title_color"
             android:textSize="@dimen/list_title_text" />
@@ -77,7 +77,7 @@
             android:id="@+id/change6"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_6"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />
@@ -94,7 +94,7 @@
             android:id="@+id/change5"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_5"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />
@@ -111,7 +111,7 @@
             android:id="@+id/change4"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_4"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />
@@ -128,7 +128,7 @@
             android:id="@+id/change3"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_3"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />
@@ -145,7 +145,7 @@
             android:id="@+id/change2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_2"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />
@@ -162,7 +162,7 @@
             android:id="@+id/change1"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-        	android:layout_marginTop="@dimen/left_right_margin"
+        	android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/changelog_1"
 	        android:textColor="@color/list_title_color"
 	        android:textSize="@dimen/list_title_text" />

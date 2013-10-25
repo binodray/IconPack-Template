@@ -37,7 +37,7 @@ public class ApplyLauncherFragment extends Fragment {
 	// This is the background layout that gets inflated behind the list view
 	public View onCreateView(LayoutInflater inflater, ViewGroup container_launcher,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.launcher_behind, null);
+		View view = inflater.inflate(R.layout.apply_launcher_behind, null);
 		gridView = (GridView) view.findViewById(R.id.grid);
 		return view;
 	}

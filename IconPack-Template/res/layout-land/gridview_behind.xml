@@ -22,7 +22,7 @@
     android:id="@+id/grid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:padding="@dimen/list_icon"
+	android:padding="@dimen/margin_small_lg"
     android:columnWidth="@dimen/column_width"
     android:numColumns="4"
     android:stretchMode="columnWidth"

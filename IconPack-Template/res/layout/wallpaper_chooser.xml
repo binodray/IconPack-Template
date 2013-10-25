@@ -57,7 +57,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
-        android:padding="@dimen/list_padding"
+        android:padding="@dimen/margin_small_sm"
         android:text="@string/app_name"
         android:textColor="@color/wall_title_color"
         android:textSize="@dimen/banner_title" />

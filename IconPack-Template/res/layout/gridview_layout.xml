@@ -27,19 +27,19 @@
     
 	<RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/list_height"
+	    android:layout_height="@dimen/listview_height"
 	    android:background="@drawable/card_bg_pressed"
 	    android:orientation="horizontal"
-	    android:padding="@dimen/list_icon"
+	    android:padding="@dimen/margin_small_lg"
 	    tools:ignore="UselessParent" >
     
     <ImageView
         android:id="@+id/list_image"
         android:contentDescription="@string/content_description"
-        android:layout_width="@dimen/listview_icon"
-        android:layout_height="@dimen/listview_icon"
-        android:layout_marginLeft="@dimen/list_icon"
-        android:layout_marginRight="@dimen/list_icon_right"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_marginLeft="@dimen/margin_small_lg"
+        android:layout_marginRight="@dimen/margin_large_sm"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:src="@drawable/icon_email" />
@@ -50,7 +50,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_below="@+id/title"
 	    android:layout_marginTop="-1dp"
-	    android:layout_marginRight="@dimen/list_padding"
+	    android:layout_marginRight="@dimen/margin_small_sm"
 	    android:layout_toRightOf="@+id/list_image"
 	    android:text="Join our Google+ Community and share your themes or find themes to download!"
 		android:textSize="@dimen/list_desc_text"

@@ -111,10 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/list_padding"
-            android:layout_marginLeft="@dimen/left_right_margin"
-            android:layout_marginRight="@dimen/left_right_margin"
-            android:layout_marginTop="@dimen/left_right_margin"
+            android:layout_margin="@dimen/margin_medium"
             android:text="@string/theme_description_app"
             android:textColor="@color/text_description"
             android:textSize="@dimen/list_desc_text" />

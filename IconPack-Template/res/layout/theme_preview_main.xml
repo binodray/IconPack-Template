@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-** Copyright 2013, The Android Open Source Project
+** Copyright 2013, the1dynasty
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,19 +16,10 @@
 ** limitations under the License.
 -->
 
-<helper.ScrollGridView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" 
-    android:id="@+id/grid"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-	android:padding="@dimen/margin_small_lg"
-    android:columnWidth="@dimen/column_width"
-    android:numColumns="auto_fit"
-    android:stretchMode="columnWidth"
-    android:gravity="center"
-    android:divider="@color/transparent"
-    android:dividerHeight="0dp"
-    android:listSelector="@color/transparent"
-    android:cacheColorHint="@color/transparent" 
-    tools:context="main.Main"/>
+    android:orientation="vertical"
+    android:background="@color/app_bg" >
+
+</LinearLayout>

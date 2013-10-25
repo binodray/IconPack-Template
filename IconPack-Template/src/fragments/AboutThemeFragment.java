@@ -32,7 +32,7 @@ public class AboutThemeFragment extends AboutThemeMain {
 	
 	   @Override
 	   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		   return inflater.inflate(R.layout.theme_fragment, container, false);
+		   return inflater.inflate(R.layout.theme_preview_fragment, container, false);
 		  	   
 	   }
 	   

@@ -12,7 +12,7 @@ public class AboutThemeMain extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.theme_main, container, false);
+        View rootView = inflater.inflate(R.layout.theme_preview_main, container, false);
                
         return rootView;
     }

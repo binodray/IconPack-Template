@@ -31,7 +31,7 @@
 	    android:layout_height="@dimen/row_height"
 	    android:background="@drawable/card_bg_pressed"
 	    android:orientation="horizontal"
-	    android:padding="@dimen/list_icon"
+	    android:padding="@dimen/margin_small_lg"
 	    tools:ignore="UselessParent" >
     
     <!-- Icon image layout - DO NOT EDIT -
@@ -48,7 +48,7 @@
 	    android:id="@+id/description"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_marginRight="@dimen/list_padding"
+	    android:layout_marginRight="@dimen/margin_small_sm"
 	    android:layout_alignLeft="@+id/title"
 	    android:layout_alignParentBottom="true"
 	    android:layout_below="@+id/title"
@@ -60,12 +60,12 @@
 
 	<ImageView
 	    android:id="@+id/list_image"
-	    android:layout_width="@dimen/listview_icon"
-	    android:layout_height="@dimen/listview_icon"
+	    android:layout_width="@dimen/icon_size"
+	    android:layout_height="@dimen/icon_size"
 	    android:layout_alignParentLeft="true"
 	    android:layout_centerVertical="true"
 	    android:contentDescription="@string/content_description"
-	    android:padding="@dimen/icon_padding"
+	    android:padding="@dimen/margin_medium"
 	    android:src="@drawable/icon_email" />
 
 	<TextView
@@ -74,7 +74,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignTop="@+id/list_image"
 	    android:layout_toRightOf="@+id/list_image"
-	    android:paddingTop="@dimen/icon_padding_bottom"
+	    android:paddingTop="@dimen/margin_large"
 	    android:text="Community"
 	    android:textColor="@color/list_title_color"
 	    android:textSize="@dimen/list_title_text"

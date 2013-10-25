@@ -61,10 +61,10 @@
     
 	<RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="@dimen/list_height"
+	    android:layout_height="@dimen/listview_height"
 	    android:background="@drawable/card_bg_pressed"
 	    android:orientation="horizontal"
-	    android:padding="@dimen/list_icon"
+	    android:padding="@dimen/margin_small_lg"
 	    tools:ignore="UselessParent" >
     
     <ImageView

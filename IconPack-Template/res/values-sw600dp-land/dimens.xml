@@ -1,40 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+** Copyright 2013, the1dynasty
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+-->
+
 <resources>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="list_padding">3dp</dimen>
-    <dimen name="list_height">88dp</dimen>
-    <dimen name="list_icon">5dp</dimen>
-    <dimen name="flat_margin">5dp</dimen>
-    <dimen name="about_title_margin">5dp</dimen>
-    <dimen name="list_icon_right">14dp</dimen>
-    <dimen name="left_right_margin">8dp</dimen>
-    <dimen name="zero_dp">0dp</dimen>
-    <dimen name="about_top_title_margin">21dp</dimen>
-    <dimen name="about_top_desc_margin">12dp</dimen>
-    <dimen name="launcher_grid_margin">20dp</dimen>
-    <dimen name="about_dev_height">180dp</dimen>
-    <dimen name="flatview_icon">78dp</dimen>
-    <dimen name="listview_icon">126dp</dimen>
-    <dimen name="dialog_small">14sp</dimen>
-    <dimen name="dialog_spacing">10dp</dimen>
-    <dimen name="dialog_center">3dp</dimen>
-    <dimen name="list_title_text">17sp</dimen>
-    <dimen name="list_desc_text">15sp</dimen>
-    <dimen name="dialog_width">300dp</dimen>
-    <dimen name="header_height">68dp</dimen>
     
-    <!-- Dialog title height -->
-    <dimen name="abs__alert_dialog_title_height">64dp</dimen>
     
-    <!-- Tablet dimensions -->
+    		<!-- ******************************* APP ********************************* -->
+    		
+	<!-- ActionBar -->
+    <dimen name="ab_height">54dp</dimen>
+        
+	<!-- Feature Banner -->
     <dimen name="banner_height">206dp</dimen>
     <dimen name="banner_title_margin">45dp</dimen>
-    <dimen name="banner_title">26sp</dimen>
     <dimen name="banner_desc">20sp</dimen>
+    <dimen name="banner_title">26sp</dimen>
     
+	<!-- GridView -->
     <dimen name="column_width">152dp</dimen>
     <dimen name="row_height">236dp</dimen>
+    <dimen name="icon_size">126dp</dimen>
     
-    <dimen name="ab_height">54dp</dimen>
+    
+    
+    		<!-- ******************************* FONTS ********************************* -->
+    		
+	<!-- MISC -->
+    <dimen name="list_title_text">17sp</dimen>
+    <dimen name="list_desc_text">15sp</dimen>
     
 </resources>

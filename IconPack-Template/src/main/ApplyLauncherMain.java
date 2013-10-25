@@ -11,7 +11,7 @@ public class ApplyLauncherMain extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.launcher_main);
+		setContentView(R.layout.apply_launcher_main);
 		
 		getSupportFragmentManager().beginTransaction()
 		.replace(R.id.container_launcher, 

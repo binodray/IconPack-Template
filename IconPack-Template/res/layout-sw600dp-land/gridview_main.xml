@@ -39,7 +39,7 @@
 	<FrameLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-		android:padding="@dimen/list_padding"
+		android:padding="@dimen/margin_small_sm"
 	    android:layout_gravity="center"
 	    android:id="@+id/container" />
 	</LinearLayout>

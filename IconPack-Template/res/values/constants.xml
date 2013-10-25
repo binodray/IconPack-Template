@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--
+** Copyright 2013, the1dynasty
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+-->
+
 <resources>
+    
+				<!-- ======== This file is a list of constants that do not need to be edited ======== -->
+    
+    
+    <!-- ******************************* Colors ********************************* -->
+    
+	<!-- Misc colors -->
+	<color name="black">#ff000000</color>
+	<color name="white">#ffffffff</color>
+	<color name="white_50">#AAFFFFFF</color>
+	<color name="black_50">#AA000000</color>
+	<color name="gray">#ffefefef</color>
+	<color name="gray_dark">#ff333333</color>
+	<color name="gray_medium">#ff999999</color>
+	<color name="gray_light">#ffcccccc</color>
+	<color name="gray_light2">#ffaaaaaa</color>
+	<color name="holo_blue">#ff33b5e5</color>
+	<color name="holo_green">#ff99cc00</color>
+	<color name="holo_purple">#ffaa66cc</color>
+	<color name="holo_orange">#ffffbb33</color>
+	<color name="holo_red">#ffff4444</color>
+	<color name="holo_red_80">#aaff4444</color>
+	<color name="holo_blue_dark">#ff0099cc</color>
+	<color name="holo_green_dark">#ff669900</color>
+	<color name="holo_purple_dark">#ff9933cc</color>
+	<color name="holo_orange_dark">#ffff8800</color>
+	<color name="holo_red_dark">#ffcc0000</color>
+	<color name="blue_dark">#ff000033</color>
+	<color name="transparent">#00000000</color>
+	<color name="transparent_black">#55000000</color>
+	
+	
+	
+    <!-- ******************************* Dimensions ********************************* -->
+
+    <dimen name="zero_dp">0dp</dimen>
+	
+    
+    
+    <!-- ******************************* Attributes ********************************* -->
+    
     <attr name="titleTextStyle" format="reference" />
     <attr name="subtitleTextStyle" format="reference" />
     <attr name="background" format="reference|color" />
@@ -429,4 +486,61 @@
     <declare-styleable name="SherlockView">
         <attr name="android:focusable"/>
     </declare-styleable>
+    
+    
+    
+    <!-- ******************************* Integers ********************************* -->
+    
+    <integer name="card_flip_time_full">300</integer>
+    <integer name="card_flip_time_half">150</integer>
+	
+		<!-- config_ab_scalefactor is a float value between 0.1 and 0.8. 
+		Set here the default .X (-1, 6 will become 7) -->
+	<integer name="config_ab_scale_factor">6</integer>
+	<integer name="bubble_radius">8</integer>
+	<integer name="config_highlights_color">0x00ff0099cc</integer>
+	<integer name="config_highlights_color_focus">0x00ff0099cc</integer>
+	<integer name="config_drawer_color">0xFF000000</integer>
+	
+	
+	
+    <!-- ******************************* Styles ********************************* -->
+    
+    <!-- Application themes -->
+    <style name="the1dynasty.Theme" parent="@android:style/Theme.Holo.Light">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/TranslucentActionBar</item>
+        <item name="actionBarStyle">@style/TranslucentActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@style/Overflow_Menu</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+    
+    <style name="the1dynasty.Theme.Dark" parent="@android:style/Theme.Holo">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/TranslucentActionBar</item>
+        <item name="actionBarStyle">@style/TranslucentActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@style/Overflow_Menu</item>
+    </style>
+    
+	<style name="Overflow_Menu" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+       	<item name="android:src">@drawable/menu_more_overflow</item>
+    </style>
+    
+    <style name="TranslucentActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent</item>
+        <item name="background">@drawable/ab_transparent</item>
+    </style>
+    
+    <!-- This is your Dialog Window popups. Changing the bg color will change the color of the window.  -->
+    <style name="the1dynasty.Dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+	
+    
 </resources>
